@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="SplashScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="SplashScreenViewController" customModule="RemoteBees" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Ay-Fo-5GG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="8LR-2t-6BR">
+                                <rect key="frame" x="57" y="251" width="301" height="339"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fRO-5t-6eb"/>
+                        <color key="backgroundColor" red="0.95686274510000002" green="0.69803921570000005" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fRO-5t-6eb" firstAttribute="bottom" secondItem="8LR-2t-6BR" secondAttribute="bottom" constant="272" id="M8Z-b5-vss"/>
+                            <constraint firstItem="8LR-2t-6BR" firstAttribute="leading" secondItem="fRO-5t-6eb" secondAttribute="leading" constant="57" id="TDW-T9-suR"/>
+                            <constraint firstItem="fRO-5t-6eb" firstAttribute="trailing" secondItem="8LR-2t-6BR" secondAttribute="trailing" constant="56" id="cUV-86-W26"/>
+                            <constraint firstItem="8LR-2t-6BR" firstAttribute="top" secondItem="fRO-5t-6eb" secondAttribute="top" constant="207" id="qP5-Vd-5fW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo" width="128" height="128"/>
+    </resources>
+</document>
