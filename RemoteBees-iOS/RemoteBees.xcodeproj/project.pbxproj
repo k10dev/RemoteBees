@@ -27,6 +27,12 @@
 		61A6CA2925687FFA00A2034B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 61A6CA2825687FFA00A2034B /* Lottie */; };
 		61E75CF22568878500067613 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E75CF12568878500067613 /* UIViewController+Extension.swift */; };
 		61E75CF7256887E600067613 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E75CF6256887E600067613 /* UIStoryboard+Extension.swift */; };
+		61E75D1C2568915500067613 /* BeehiveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E75D1B2568915500067613 /* BeehiveService.swift */; };
+		61E75D212568916200067613 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E75D202568916200067613 /* ServiceManager.swift */; };
+		61E75D262568917500067613 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E75D252568917500067613 /* Job.swift */; };
+		61E75D2B2568918E00067613 /* RemotiveBeehiveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E75D2A2568918E00067613 /* RemotiveBeehiveService.swift */; };
+		61E75D30256891B700067613 /* RemoteBeesServiceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E75D2F256891B700067613 /* RemoteBeesServiceConfiguration.swift */; };
+		61E75D35256891D900067613 /* RemoteBeesServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E75D34256891D900067613 /* RemoteBeesServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +72,12 @@
 		61A6CA1F256879A600A2034B /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		61E75CF12568878500067613 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		61E75CF6256887E600067613 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		61E75D1B2568915500067613 /* BeehiveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeehiveService.swift; sourceTree = "<group>"; };
+		61E75D202568916200067613 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		61E75D252568917500067613 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		61E75D2A2568918E00067613 /* RemotiveBeehiveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotiveBeehiveService.swift; sourceTree = "<group>"; };
+		61E75D2F256891B700067613 /* RemoteBeesServiceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBeesServiceConfiguration.swift; sourceTree = "<group>"; };
+		61E75D34256891D900067613 /* RemoteBeesServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBeesServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				61A6C998256859CC00A2034B /* RemoteBees */,
+				61E75D15256890D800067613 /* RemoteBeesService */,
 				61A6C9AF256859CD00A2034B /* RemoteBeesTests */,
 				61A6C9BA256859CD00A2034B /* RemoteBeesUITests */,
 				61A6C997256859CC00A2034B /* Products */,
@@ -179,6 +192,59 @@
 				61E75CF12568878500067613 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		61E75D15256890D800067613 /* RemoteBeesService */ = {
+			isa = PBXGroup;
+			children = (
+				61E75D16256890E500067613 /* API */,
+				61E75D17256890EC00067613 /* Domain */,
+				61E75D1A2568912B00067613 /* Managers */,
+				61E75D18256890FC00067613 /* RemotiveAPI */,
+			);
+			path = RemoteBeesService;
+			sourceTree = "<group>";
+		};
+		61E75D16256890E500067613 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				61E75D192568911C00067613 /* Manager */,
+				61E75D1B2568915500067613 /* BeehiveService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		61E75D17256890EC00067613 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				61E75D252568917500067613 /* Job.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		61E75D18256890FC00067613 /* RemotiveAPI */ = {
+			isa = PBXGroup;
+			children = (
+				61E75D2A2568918E00067613 /* RemotiveBeehiveService.swift */,
+			);
+			path = RemotiveAPI;
+			sourceTree = "<group>";
+		};
+		61E75D192568911C00067613 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				61E75D202568916200067613 /* ServiceManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		61E75D1A2568912B00067613 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				61E75D2F256891B700067613 /* RemoteBeesServiceConfiguration.swift */,
+				61E75D34256891D900067613 /* RemoteBeesServiceManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,8 +401,14 @@
 				61A6CA142568733B00A2034B /* SplashScreenView.swift in Sources */,
 				61E75CF22568878500067613 /* UIViewController+Extension.swift in Sources */,
 				61A6C99A256859CC00A2034B /* AppDelegate.swift in Sources */,
+				61E75D35256891D900067613 /* RemoteBeesServiceManager.swift in Sources */,
+				61E75D1C2568915500067613 /* BeehiveService.swift in Sources */,
+				61E75D2B2568918E00067613 /* RemotiveBeehiveService.swift in Sources */,
+				61E75D30256891B700067613 /* RemoteBeesServiceConfiguration.swift in Sources */,
+				61E75D262568917500067613 /* Job.swift in Sources */,
 				61E75CF7256887E600067613 /* UIStoryboard+Extension.swift in Sources */,
 				61A6C99C256859CC00A2034B /* SceneDelegate.swift in Sources */,
+				61E75D212568916200067613 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
