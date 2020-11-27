@@ -1,0 +1,9 @@
+@startuml
+
+[*] --> Prompt
+
+Prompt --> FirstLaunch
+
+FirstLaunch --> [*]
+
+@enduml

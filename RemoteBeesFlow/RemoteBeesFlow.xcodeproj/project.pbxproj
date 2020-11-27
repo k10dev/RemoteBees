@@ -8,10 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		6156A8D42571564A00FADE2B /* RemoteBeesFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6156A8CA2571564900FADE2B /* RemoteBeesFlow.framework */; };
-		6156A8D92571564A00FADE2B /* RemoteBeesFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156A8D82571564A00FADE2B /* RemoteBeesFlowTests.swift */; };
-		6156A8DB2571564A00FADE2B /* RemoteBeesFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 6156A8CD2571564900FADE2B /* RemoteBeesFlow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6156A92B2571582700FADE2B /* RemoteBeesDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6156A92A2571582700FADE2B /* RemoteBeesDependencies.framework */; };
+		6156A97A2571680000FADE2B /* RemoteBeesFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 6156A9782571680000FADE2B /* RemoteBeesFlow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6156A989257168FE00FADE2B /* Startup.puml in Sources */ = {isa = PBXBuildFile; fileRef = 6156A9812571685200FADE2B /* Startup.puml */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		6156A9BF257199F000FADE2B /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.puml";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			name = "Files '*.puml' using Script";
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).swift",
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\nexport export_lang=swift\n${PROJECT_DIR}/compiler/build/install/compiler/bin/compiler --export swift --image ${INPUT_FILE_DIR} --output ${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.swift ${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		6156A8D52571564A00FADE2B /* PBXContainerItemProxy */ = {
@@ -25,12 +42,12 @@
 
 /* Begin PBXFileReference section */
 		6156A8CA2571564900FADE2B /* RemoteBeesFlow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RemoteBeesFlow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6156A8CD2571564900FADE2B /* RemoteBeesFlow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteBeesFlow.h; sourceTree = "<group>"; };
-		6156A8CE2571564900FADE2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6156A8D32571564A00FADE2B /* RemoteBeesFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteBeesFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6156A8D82571564A00FADE2B /* RemoteBeesFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBeesFlowTests.swift; sourceTree = "<group>"; };
-		6156A8DA2571564A00FADE2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6156A92A2571582700FADE2B /* RemoteBeesDependencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RemoteBeesDependencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6156A9782571680000FADE2B /* RemoteBeesFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteBeesFlow.h; path = flow/src/main/resources/RemoteBeesFlow.h; sourceTree = "<group>"; };
+		6156A9792571680000FADE2B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = flow/src/main/resources/Info.plist; sourceTree = "<group>"; };
+		6156A9812571685200FADE2B /* Startup.puml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Startup.puml; sourceTree = "<group>"; };
+		6156A9C225719A8400FADE2B /* Startup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Startup.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +73,8 @@
 		6156A8C02571564900FADE2B = {
 			isa = PBXGroup;
 			children = (
-				6156A8CC2571564900FADE2B /* RemoteBeesFlow */,
-				6156A8D72571564A00FADE2B /* RemoteBeesFlowTests */,
+				6156A9802571685200FADE2B /* flows */,
+				6156A977257167EE00FADE2B /* Resources */,
 				6156A8CB2571564900FADE2B /* Products */,
 				6156A9292571582700FADE2B /* Frameworks */,
 			);
@@ -72,30 +89,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6156A8CC2571564900FADE2B /* RemoteBeesFlow */ = {
-			isa = PBXGroup;
-			children = (
-				6156A8CD2571564900FADE2B /* RemoteBeesFlow.h */,
-				6156A8CE2571564900FADE2B /* Info.plist */,
-			);
-			path = RemoteBeesFlow;
-			sourceTree = "<group>";
-		};
-		6156A8D72571564A00FADE2B /* RemoteBeesFlowTests */ = {
-			isa = PBXGroup;
-			children = (
-				6156A8D82571564A00FADE2B /* RemoteBeesFlowTests.swift */,
-				6156A8DA2571564A00FADE2B /* Info.plist */,
-			);
-			path = RemoteBeesFlowTests;
-			sourceTree = "<group>";
-		};
 		6156A9292571582700FADE2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				6156A92A2571582700FADE2B /* RemoteBeesDependencies.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6156A977257167EE00FADE2B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6156A9792571680000FADE2B /* Info.plist */,
+				6156A9782571680000FADE2B /* RemoteBeesFlow.h */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6156A9802571685200FADE2B /* flows */ = {
+			isa = PBXGroup;
+			children = (
+				6156A9C225719A8400FADE2B /* Startup.png */,
+				6156A9812571685200FADE2B /* Startup.puml */,
+			);
+			name = flows;
+			path = flow/src/main/flows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,7 +123,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6156A8DB2571564A00FADE2B /* RemoteBeesFlow.h in Headers */,
+				6156A97A2571680000FADE2B /* RemoteBeesFlow.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,12 +134,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6156A8DE2571564A00FADE2B /* Build configuration list for PBXNativeTarget "RemoteBeesFlow" */;
 			buildPhases = (
+				6156A93B2571604400FADE2B /* ShellScript */,
 				6156A8C52571564900FADE2B /* Headers */,
 				6156A8C62571564900FADE2B /* Sources */,
 				6156A8C72571564900FADE2B /* Frameworks */,
 				6156A8C82571564900FADE2B /* Resources */,
 			);
 			buildRules = (
+				6156A9BF257199F000FADE2B /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -201,11 +221,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6156A93B2571604400FADE2B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\npwd\n./gradlew installDist\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6156A8C62571564900FADE2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6156A989257168FE00FADE2B /* Startup.puml in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6156A8D92571564A00FADE2B /* RemoteBeesFlowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -338,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -358,7 +398,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = RemoteBeesFlow/Info.plist;
+				INFOPLIST_FILE = flow/src/main/resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -381,7 +421,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = RemoteBeesFlow/Info.plist;
+				INFOPLIST_FILE = flow/src/main/resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

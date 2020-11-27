@@ -13,4 +13,15 @@ xcuserdata/
 *.dSYM
 
 .build/
+.idea/
+
+*.iml
+.gradle
+local.properties
+build/
+captures/
+.externalNativeBuild
+.cxx.DS_Store
+*/flow/build/
+*/compiler/build/
 
