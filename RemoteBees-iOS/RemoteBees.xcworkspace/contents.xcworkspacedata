@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../RemoteBeesFlow/iOS/RemoteBeesFlow.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:RemoteBees.xcodeproj">
    </FileRef>
 </Workspace>
