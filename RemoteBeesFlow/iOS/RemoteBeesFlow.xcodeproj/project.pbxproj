@@ -10,6 +10,7 @@
 		6156A8D42571564A00FADE2B /* RemoteBeesFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6156A8CA2571564900FADE2B /* RemoteBeesFlow.framework */; };
 		6156A8D92571564A00FADE2B /* RemoteBeesFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156A8D82571564A00FADE2B /* RemoteBeesFlowTests.swift */; };
 		6156A8DB2571564A00FADE2B /* RemoteBeesFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 6156A8CD2571564900FADE2B /* RemoteBeesFlow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6156A92B2571582700FADE2B /* RemoteBeesDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6156A92A2571582700FADE2B /* RemoteBeesDependencies.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		6156A8D32571564A00FADE2B /* RemoteBeesFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteBeesFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6156A8D82571564A00FADE2B /* RemoteBeesFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBeesFlowTests.swift; sourceTree = "<group>"; };
 		6156A8DA2571564A00FADE2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6156A92A2571582700FADE2B /* RemoteBeesDependencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RemoteBeesDependencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6156A92B2571582700FADE2B /* RemoteBeesDependencies.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +59,7 @@
 				6156A8CC2571564900FADE2B /* RemoteBeesFlow */,
 				6156A8D72571564A00FADE2B /* RemoteBeesFlowTests */,
 				6156A8CB2571564900FADE2B /* Products */,
+				6156A9292571582700FADE2B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +88,14 @@
 				6156A8DA2571564A00FADE2B /* Info.plist */,
 			);
 			path = RemoteBeesFlowTests;
+			sourceTree = "<group>";
+		};
+		6156A9292571582700FADE2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6156A92A2571582700FADE2B /* RemoteBeesDependencies.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

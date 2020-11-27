@@ -10,6 +10,14 @@
 		6156A8AF2570476000FADE2B /* DictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156A8AE2570476000FADE2B /* DictionaryEncoder.swift */; };
 		6156A8B42570477800FADE2B /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156A8B32570477800FADE2B /* DictionaryDecoder.swift */; };
 		6156A8B9257047A000FADE2B /* CouchbaseLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156A8B8257047A000FADE2B /* CouchbaseLite.swift */; };
+		6156A8FF2571576C00FADE2B /* RemoteBeesDependencies.h in Headers */ = {isa = PBXBuildFile; fileRef = 6156A8EF2571576C00FADE2B /* RemoteBeesDependencies.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6156A9022571576C00FADE2B /* RemoteBeesDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6156A8ED2571576C00FADE2B /* RemoteBeesDependencies.framework */; };
+		6156A9032571576C00FADE2B /* RemoteBeesDependencies.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6156A8ED2571576C00FADE2B /* RemoteBeesDependencies.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6156A914257157AA00FADE2B /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6156A913257157AA00FADE2B /* PromiseKit */; };
+		6156A91E257157E700FADE2B /* HTTPServiceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6156A91D257157E700FADE2B /* HTTPServiceKit */; };
+		6156A920257157EF00FADE2B /* FlowKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6156A91F257157EF00FADE2B /* FlowKit */; };
+		6156A92F2571586C00FADE2B /* RemoteBeesFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6156A92E2571586C00FADE2B /* RemoteBeesFlow.framework */; };
+		6156A9302571586C00FADE2B /* RemoteBeesFlow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6156A92E2571586C00FADE2B /* RemoteBeesFlow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61A6C99A256859CC00A2034B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6C999256859CC00A2034B /* AppDelegate.swift */; };
 		61A6C99C256859CC00A2034B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6C99B256859CC00A2034B /* SceneDelegate.swift */; };
 		61A6C99E256859CC00A2034B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6C99D256859CC00A2034B /* ViewController.swift */; };
@@ -18,12 +26,9 @@
 		61A6C9A6256859CD00A2034B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A6C9A4256859CD00A2034B /* LaunchScreen.storyboard */; };
 		61A6C9B1256859CD00A2034B /* RemoteBeesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6C9B0256859CD00A2034B /* RemoteBeesTests.swift */; };
 		61A6C9BC256859CD00A2034B /* RemoteBeesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6C9BB256859CD00A2034B /* RemoteBeesUITests.swift */; };
-		61A6C9D325686A5500A2034B /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 61A6C9D225686A5500A2034B /* PromiseKit */; };
 		61A6C9D925686A6F00A2034B /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 61A6C9D825686A6F00A2034B /* Logging */; };
 		61A6C9DF25686A8B00A2034B /* LoggingOSLog in Frameworks */ = {isa = PBXBuildFile; productRef = 61A6C9DE25686A8B00A2034B /* LoggingOSLog */; };
-		61A6C9F425686B3100A2034B /* HTTPServiceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 61A6C9F325686B3100A2034B /* HTTPServiceKit */; };
 		61A6C9FA25686C6800A2034B /* CouchbaseLiteSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 61A6C9F925686C6800A2034B /* CouchbaseLiteSwift */; };
-		61A6CA0025686CA500A2034B /* FlowKit in Frameworks */ = {isa = PBXBuildFile; productRef = 61A6C9FF25686CA500A2034B /* FlowKit */; };
 		61A6CA0925686E4B00A2034B /* AppProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6CA0825686E4B00A2034B /* AppProxy.swift */; };
 		61A6CA142568733B00A2034B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6CA132568733B00A2034B /* SplashScreenView.swift */; };
 		61A6CA20256879A600A2034B /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6CA1F256879A600A2034B /* SplashScreenViewController.swift */; };
@@ -39,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6156A9002571576C00FADE2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61A6C98E256859CC00A2034B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6156A8EC2571576C00FADE2B;
+			remoteInfo = RemoteBeesDependencies;
+		};
 		61A6C9AD256859CD00A2034B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 61A6C98E256859CC00A2034B /* Project object */;
@@ -55,10 +67,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6156A9072571576C00FADE2B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6156A9032571576C00FADE2B /* RemoteBeesDependencies.framework in Embed Frameworks */,
+				6156A9302571586C00FADE2B /* RemoteBeesFlow.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6156A8AE2570476000FADE2B /* DictionaryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncoder.swift; sourceTree = "<group>"; };
 		6156A8B32570477800FADE2B /* DictionaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoder.swift; sourceTree = "<group>"; };
 		6156A8B8257047A000FADE2B /* CouchbaseLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouchbaseLite.swift; sourceTree = "<group>"; };
+		6156A8ED2571576C00FADE2B /* RemoteBeesDependencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RemoteBeesDependencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6156A8EF2571576C00FADE2B /* RemoteBeesDependencies.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteBeesDependencies.h; sourceTree = "<group>"; };
+		6156A8F02571576C00FADE2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6156A92E2571586C00FADE2B /* RemoteBeesFlow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RemoteBeesFlow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A6C996256859CC00A2034B /* RemoteBees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A6C999256859CC00A2034B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61A6C99B256859CC00A2034B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,17 +118,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6156A8EA2571576C00FADE2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6156A920257157EF00FADE2B /* FlowKit in Frameworks */,
+				6156A914257157AA00FADE2B /* PromiseKit in Frameworks */,
+				6156A91E257157E700FADE2B /* HTTPServiceKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61A6C993256859CC00A2034B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				61A6C9FA25686C6800A2034B /* CouchbaseLiteSwift in Frameworks */,
+				6156A92F2571586C00FADE2B /* RemoteBeesFlow.framework in Frameworks */,
 				61A6CA2925687FFA00A2034B /* Lottie in Frameworks */,
 				61A6C9DF25686A8B00A2034B /* LoggingOSLog in Frameworks */,
 				61A6C9D925686A6F00A2034B /* Logging in Frameworks */,
-				61A6CA0025686CA500A2034B /* FlowKit in Frameworks */,
-				61A6C9D325686A5500A2034B /* PromiseKit in Frameworks */,
-				61A6C9F425686B3100A2034B /* HTTPServiceKit in Frameworks */,
+				6156A9022571576C00FADE2B /* RemoteBeesDependencies.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +168,23 @@
 			path = Couchbase;
 			sourceTree = "<group>";
 		};
+		6156A8EE2571576C00FADE2B /* RemoteBeesDependencies */ = {
+			isa = PBXGroup;
+			children = (
+				6156A8EF2571576C00FADE2B /* RemoteBeesDependencies.h */,
+				6156A8F02571576C00FADE2B /* Info.plist */,
+			);
+			path = RemoteBeesDependencies;
+			sourceTree = "<group>";
+		};
+		6156A912257157AA00FADE2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6156A92E2571586C00FADE2B /* RemoteBeesFlow.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		61A6C98D256859CC00A2034B = {
 			isa = PBXGroup;
 			children = (
@@ -135,7 +192,9 @@
 				61E75D15256890D800067613 /* RemoteBeesService */,
 				61A6C9AF256859CD00A2034B /* RemoteBeesTests */,
 				61A6C9BA256859CD00A2034B /* RemoteBeesUITests */,
+				6156A8EE2571576C00FADE2B /* RemoteBeesDependencies */,
 				61A6C997256859CC00A2034B /* Products */,
+				6156A912257157AA00FADE2B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,6 +204,7 @@
 				61A6C996256859CC00A2034B /* RemoteBees.app */,
 				61A6C9AC256859CD00A2034B /* RemoteBeesTests.xctest */,
 				61A6C9B7256859CD00A2034B /* RemoteBeesUITests.xctest */,
+				6156A8ED2571576C00FADE2B /* RemoteBeesDependencies.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -266,7 +326,41 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		6156A8E82571576C00FADE2B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6156A8FF2571576C00FADE2B /* RemoteBeesDependencies.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		6156A8EC2571576C00FADE2B /* RemoteBeesDependencies */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6156A9042571576C00FADE2B /* Build configuration list for PBXNativeTarget "RemoteBeesDependencies" */;
+			buildPhases = (
+				6156A8E82571576C00FADE2B /* Headers */,
+				6156A8E92571576C00FADE2B /* Sources */,
+				6156A8EA2571576C00FADE2B /* Frameworks */,
+				6156A8EB2571576C00FADE2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RemoteBeesDependencies;
+			packageProductDependencies = (
+				6156A913257157AA00FADE2B /* PromiseKit */,
+				6156A91D257157E700FADE2B /* HTTPServiceKit */,
+				6156A91F257157EF00FADE2B /* FlowKit */,
+			);
+			productName = RemoteBeesDependencies;
+			productReference = 6156A8ED2571576C00FADE2B /* RemoteBeesDependencies.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		61A6C995256859CC00A2034B /* RemoteBees */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61A6C9C0256859CD00A2034B /* Build configuration list for PBXNativeTarget "RemoteBees" */;
@@ -274,19 +368,18 @@
 				61A6C992256859CC00A2034B /* Sources */,
 				61A6C993256859CC00A2034B /* Frameworks */,
 				61A6C994256859CC00A2034B /* Resources */,
+				6156A9072571576C00FADE2B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6156A9012571576C00FADE2B /* PBXTargetDependency */,
 			);
 			name = RemoteBees;
 			packageProductDependencies = (
-				61A6C9D225686A5500A2034B /* PromiseKit */,
 				61A6C9D825686A6F00A2034B /* Logging */,
 				61A6C9DE25686A8B00A2034B /* LoggingOSLog */,
-				61A6C9F325686B3100A2034B /* HTTPServiceKit */,
 				61A6C9F925686C6800A2034B /* CouchbaseLiteSwift */,
-				61A6C9FF25686CA500A2034B /* FlowKit */,
 				61A6CA2825687FFA00A2034B /* Lottie */,
 			);
 			productName = RemoteBees;
@@ -338,6 +431,9 @@
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
+					6156A8EC2571576C00FADE2B = {
+						CreatedOnToolsVersion = 12.2;
+					};
 					61A6C995256859CC00A2034B = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -376,11 +472,19 @@
 				61A6C995256859CC00A2034B /* RemoteBees */,
 				61A6C9AB256859CD00A2034B /* RemoteBeesTests */,
 				61A6C9B6256859CD00A2034B /* RemoteBeesUITests */,
+				6156A8EC2571576C00FADE2B /* RemoteBeesDependencies */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6156A8EB2571576C00FADE2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61A6C994256859CC00A2034B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,6 +512,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6156A8E92571576C00FADE2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61A6C992256859CC00A2034B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,6 +562,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6156A9012571576C00FADE2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6156A8EC2571576C00FADE2B /* RemoteBeesDependencies */;
+			targetProxy = 6156A9002571576C00FADE2B /* PBXContainerItemProxy */;
+		};
 		61A6C9AE256859CD00A2034B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 61A6C995256859CC00A2034B /* RemoteBees */;
@@ -483,6 +599,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6156A9052571576C00FADE2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RemoteBeesDependencies/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.beehive.RemoteBeesDependencies;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6156A9062571576C00FADE2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RemoteBeesDependencies/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.beehive.RemoteBeesDependencies;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		61A6C9BE256859CD00A2034B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -734,6 +906,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6156A9042571576C00FADE2B /* Build configuration list for PBXNativeTarget "RemoteBeesDependencies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6156A9052571576C00FADE2B /* Debug */,
+				6156A9062571576C00FADE2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		61A6C991256859CC00A2034B /* Build configuration list for PBXProject "RemoteBees" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -832,10 +1013,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		61A6C9D225686A5500A2034B /* PromiseKit */ = {
+		6156A913257157AA00FADE2B /* PromiseKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61A6C9D125686A5500A2034B /* XCRemoteSwiftPackageReference "PromiseKit" */;
 			productName = PromiseKit;
+		};
+		6156A91D257157E700FADE2B /* HTTPServiceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61A6C9F225686B3100A2034B /* XCRemoteSwiftPackageReference "HTTPServiceKit" */;
+			productName = HTTPServiceKit;
+		};
+		6156A91F257157EF00FADE2B /* FlowKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61A6C9FE25686CA500A2034B /* XCRemoteSwiftPackageReference "FlowKit" */;
+			productName = FlowKit;
 		};
 		61A6C9D825686A6F00A2034B /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -847,20 +1038,10 @@
 			package = 61A6C9DD25686A8B00A2034B /* XCRemoteSwiftPackageReference "swift-log-oslog" */;
 			productName = LoggingOSLog;
 		};
-		61A6C9F325686B3100A2034B /* HTTPServiceKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 61A6C9F225686B3100A2034B /* XCRemoteSwiftPackageReference "HTTPServiceKit" */;
-			productName = HTTPServiceKit;
-		};
 		61A6C9F925686C6800A2034B /* CouchbaseLiteSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61A6C9F825686C6800A2034B /* XCRemoteSwiftPackageReference "couchbase-lite-ios" */;
 			productName = CouchbaseLiteSwift;
-		};
-		61A6C9FF25686CA500A2034B /* FlowKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 61A6C9FE25686CA500A2034B /* XCRemoteSwiftPackageReference "FlowKit" */;
-			productName = FlowKit;
 		};
 		61A6CA2825687FFA00A2034B /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
