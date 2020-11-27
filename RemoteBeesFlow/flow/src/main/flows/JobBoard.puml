@@ -1,0 +1,15 @@
+@startuml
+
+title JobBoard
+
+[*] --> Main
+
+Main --> Login
+Main --> Profile
+
+Login --> Main
+Profile --> Main
+
+Main --> [*]
+
+@enduml

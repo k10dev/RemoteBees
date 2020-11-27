@@ -1,0 +1,14 @@
+@startuml
+
+title SignUp
+
+[*] --> Prompt
+
+Prompt --> SubmitSignUp
+
+SubmitSignUp --> Prompt
+
+Prompt --> [*]
+SubmitSignUp --> [*]
+
+@enduml

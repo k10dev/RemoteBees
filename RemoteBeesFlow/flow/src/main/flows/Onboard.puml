@@ -1,0 +1,16 @@
+@startuml
+
+title Onboard
+
+[*] --> Prompt
+
+Prompt --> Login
+Prompt --> SignUp
+Prompt --> Skip
+
+Login --> Prompt
+SignUp --> Prompt
+
+Skip --> [*]
+
+@enduml

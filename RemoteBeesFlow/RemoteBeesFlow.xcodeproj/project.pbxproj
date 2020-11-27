@@ -11,6 +11,10 @@
 		6156A92B2571582700FADE2B /* RemoteBeesDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6156A92A2571582700FADE2B /* RemoteBeesDependencies.framework */; };
 		6156A97A2571680000FADE2B /* RemoteBeesFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 6156A9782571680000FADE2B /* RemoteBeesFlow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6156A989257168FE00FADE2B /* Startup.puml in Sources */ = {isa = PBXBuildFile; fileRef = 6156A9812571685200FADE2B /* Startup.puml */; };
+		6156A9D52571A61100FADE2B /* Onboard.puml in Sources */ = {isa = PBXBuildFile; fileRef = 6156A9D42571A61100FADE2B /* Onboard.puml */; };
+		6156A9E42571B04100FADE2B /* Login.puml in Sources */ = {isa = PBXBuildFile; fileRef = 6156A9E22571B04100FADE2B /* Login.puml */; };
+		6156A9E52571B04100FADE2B /* SignUp.puml in Sources */ = {isa = PBXBuildFile; fileRef = 6156A9E32571B04100FADE2B /* SignUp.puml */; };
+		6156A9F12571B31A00FADE2B /* JobBoard.puml in Sources */ = {isa = PBXBuildFile; fileRef = 6156A9F02571B31A00FADE2B /* JobBoard.puml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -48,6 +52,14 @@
 		6156A9792571680000FADE2B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = flow/src/main/resources/Info.plist; sourceTree = "<group>"; };
 		6156A9812571685200FADE2B /* Startup.puml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Startup.puml; sourceTree = "<group>"; };
 		6156A9C225719A8400FADE2B /* Startup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Startup.png; sourceTree = "<group>"; };
+		6156A9D42571A61100FADE2B /* Onboard.puml */ = {isa = PBXFileReference; lastKnownFileType = text; path = Onboard.puml; sourceTree = "<group>"; };
+		6156A9D82571AB4200FADE2B /* Onboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Onboard.png; sourceTree = "<group>"; };
+		6156A9E22571B04100FADE2B /* Login.puml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Login.puml; sourceTree = "<group>"; };
+		6156A9E32571B04100FADE2B /* SignUp.puml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SignUp.puml; sourceTree = "<group>"; };
+		6156A9EA2571B05F00FADE2B /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login.png; sourceTree = "<group>"; };
+		6156A9EB2571B05F00FADE2B /* SignUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUp.png; sourceTree = "<group>"; };
+		6156A9F02571B31A00FADE2B /* JobBoard.puml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JobBoard.puml; sourceTree = "<group>"; };
+		6156A9F42571B32900FADE2B /* JobBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobBoard.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +121,16 @@
 		6156A9802571685200FADE2B /* flows */ = {
 			isa = PBXGroup;
 			children = (
-				6156A9C225719A8400FADE2B /* Startup.png */,
+				6156A9F02571B31A00FADE2B /* JobBoard.puml */,
+				6156A9F42571B32900FADE2B /* JobBoard.png */,
+				6156A9E22571B04100FADE2B /* Login.puml */,
+				6156A9EA2571B05F00FADE2B /* Login.png */,
+				6156A9D42571A61100FADE2B /* Onboard.puml */,
+				6156A9D82571AB4200FADE2B /* Onboard.png */,
+				6156A9E32571B04100FADE2B /* SignUp.puml */,
+				6156A9EB2571B05F00FADE2B /* SignUp.png */,
 				6156A9812571685200FADE2B /* Startup.puml */,
+				6156A9C225719A8400FADE2B /* Startup.png */,
 			);
 			name = flows;
 			path = flow/src/main/flows;
@@ -246,6 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6156A9F12571B31A00FADE2B /* JobBoard.puml in Sources */,
+				6156A9E42571B04100FADE2B /* Login.puml in Sources */,
+				6156A9D52571A61100FADE2B /* Onboard.puml in Sources */,
+				6156A9E52571B04100FADE2B /* SignUp.puml in Sources */,
 				6156A989257168FE00FADE2B /* Startup.puml in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

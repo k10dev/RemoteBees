@@ -1,0 +1,24 @@
+@startuml
+
+title Login
+
+[*] --> Prompt
+
+Prompt --> ForgotPassword
+Prompt --> SignUp
+Prompt --> SubmitLogin
+
+ForgotPassword --> SubmitForgotPassword
+
+SubmitForgotPassword --> ForgotPassword
+SubmitForgotPassword --> Prompt
+
+ForgotPassword --> Prompt
+SignUp --> Prompt
+SubmitLogin --> Prompt
+
+Prompt --> [*]
+SignUp --> [*]
+SubmitLogin --> [*]
+
+@enduml

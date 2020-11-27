@@ -1,9 +1,15 @@
-@startuml
+@startuml Startup
 
-[*] --> Prompt
+title Startup
+note "Startup flow is the application entry flow " as N1
 
-Prompt --> FirstLaunch
+[*] --> Entry
 
-FirstLaunch --> [*]
+Entry --> Onboard
+Entry --> JobBoard
+
+Onboard --> JobBoard
+
+JobBoard --> [*]
 
 @enduml
