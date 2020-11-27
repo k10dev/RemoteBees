@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6156A8AF2570476000FADE2B /* DictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156A8AE2570476000FADE2B /* DictionaryEncoder.swift */; };
+		6156A8B42570477800FADE2B /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156A8B32570477800FADE2B /* DictionaryDecoder.swift */; };
+		6156A8B9257047A000FADE2B /* CouchbaseLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156A8B8257047A000FADE2B /* CouchbaseLite.swift */; };
 		61A6C99A256859CC00A2034B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6C999256859CC00A2034B /* AppDelegate.swift */; };
 		61A6C99C256859CC00A2034B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6C99B256859CC00A2034B /* SceneDelegate.swift */; };
 		61A6C99E256859CC00A2034B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6C99D256859CC00A2034B /* ViewController.swift */; };
@@ -53,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6156A8AE2570476000FADE2B /* DictionaryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncoder.swift; sourceTree = "<group>"; };
+		6156A8B32570477800FADE2B /* DictionaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoder.swift; sourceTree = "<group>"; };
+		6156A8B8257047A000FADE2B /* CouchbaseLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouchbaseLite.swift; sourceTree = "<group>"; };
 		61A6C996256859CC00A2034B /* RemoteBees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A6C999256859CC00A2034B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61A6C99B256859CC00A2034B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +118,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6156A8AD2570473300FADE2B /* Couchbase */ = {
+			isa = PBXGroup;
+			children = (
+				6156A8B8257047A000FADE2B /* CouchbaseLite.swift */,
+				6156A8AE2570476000FADE2B /* DictionaryEncoder.swift */,
+				6156A8B32570477800FADE2B /* DictionaryDecoder.swift */,
+			);
+			path = Couchbase;
+			sourceTree = "<group>";
+		};
 		61A6C98D256859CC00A2034B = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +217,7 @@
 				61E75D17256890EC00067613 /* Domain */,
 				61E75D1A2568912B00067613 /* Managers */,
 				61E75D18256890FC00067613 /* RemotiveAPI */,
+				6156A8AD2570473300FADE2B /* Couchbase */,
 			);
 			path = RemoteBeesService;
 			sourceTree = "<group>";
@@ -395,8 +412,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6156A8AF2570476000FADE2B /* DictionaryEncoder.swift in Sources */,
 				61A6CA0925686E4B00A2034B /* AppProxy.swift in Sources */,
 				61A6C99E256859CC00A2034B /* ViewController.swift in Sources */,
+				6156A8B9257047A000FADE2B /* CouchbaseLite.swift in Sources */,
 				61A6CA20256879A600A2034B /* SplashScreenViewController.swift in Sources */,
 				61A6CA142568733B00A2034B /* SplashScreenView.swift in Sources */,
 				61E75CF22568878500067613 /* UIViewController+Extension.swift in Sources */,
@@ -408,6 +427,7 @@
 				61E75D262568917500067613 /* Job.swift in Sources */,
 				61E75CF7256887E600067613 /* UIStoryboard+Extension.swift in Sources */,
 				61A6C99C256859CC00A2034B /* SceneDelegate.swift in Sources */,
+				6156A8B42570477800FADE2B /* DictionaryDecoder.swift in Sources */,
 				61E75D212568916200067613 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

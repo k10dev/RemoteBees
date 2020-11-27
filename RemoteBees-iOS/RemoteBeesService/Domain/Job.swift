@@ -29,7 +29,8 @@ public struct Job: Codable {
     public let candidateRequiredLocation: String
     public let salary: String
     public let description: String
-    
+    public let documentType: String = "JOB"
+
     private enum CodingKeys: String, CodingKey {
         case id
         case url
@@ -42,6 +43,7 @@ public struct Job: Codable {
         case candidateRequiredLocation = "candidate_required_location"
         case salary
         case description
+        case documentType
     }
 
 }

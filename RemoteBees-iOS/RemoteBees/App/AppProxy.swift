@@ -3,6 +3,7 @@
 //  RemoteBees
 //
 
+import Foundation
 import PromiseKit
 import Logging
 import HTTPServiceKit
@@ -36,15 +37,17 @@ final class AppProxy {
     static let proxy = AppProxy()
 
     private lazy var serviceConfiguration =
-        RemoteBeesServiceConfiguration(environment: .development, logger: RemoteBeesServiceLogger())
-    
-    var serviceManager: ServiceManager {
-        return RemoteBeesServiceManager(configuration: self.serviceConfiguration)
-    }
+        RemoteBeesServiceConfiguration(
+            environment: .development,
+            localeIdentifier: Locale.current.identifier,
+            logger: RemoteBeesServiceLogger())
+
+    private(set) var serviceManager: ServiceManager!
 
     func initialize() -> Promise<Void> {
-        
-        return self.serviceManager.beehiveService.getJobs()
+        self.serviceManager = RemoteBeesServiceManager(configuration: self.serviceConfiguration)
+
+        return self.serviceManager.beehiveService.getAllJobs()
                     .done {
                         $0.forEach { print($0.companyName) }
                     }
