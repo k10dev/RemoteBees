@@ -18,7 +18,7 @@ struct ForgotPasswordView: FlowableView {
 
     public let resolver: Resolver<Output>
 
-    @State var email: String = ""
+    @State private var email: String = ""
     
     init(context: Void, resolver: Resolver<Output>) {
         self.resolver = resolver
@@ -26,15 +26,16 @@ struct ForgotPasswordView: FlowableView {
 
     var body: some View {
         VStack {
-            Spacer().frame(height: 50)
+            Spacer().frame(height: 30)
 
             TextField("Email", text: $email)
-                .padding()
+                .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
-                .padding(10)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 20)
 
-            Button("SUBMIT", action: self.onSubmit)
+            Button("Submit", action: self.onSubmit)
                 .font(.system(size: 20))
                 .foregroundColor(Color.white)
                 .frame(width: 250, height: 50, alignment: .center)
@@ -42,6 +43,7 @@ struct ForgotPasswordView: FlowableView {
 
             Spacer()
         }
+        .navigationBarTitle("Password Reset")
     }
 
     private func onSubmit() {

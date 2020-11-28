@@ -8,11 +8,15 @@ Prompt --> Login
 Prompt --> SignUp
 Prompt --> Skip
 
+Login --> JobBoard
 Login --> Prompt
+
+SignUp --> JobBoard
 SignUp --> Prompt
 
-Login --> [*]
-SignUp --> [*]
-Skip --> [*]
+Skip --> JobBoard
+
+JobBoard --> [*]
+Prompt --> [*]
 
 @enduml

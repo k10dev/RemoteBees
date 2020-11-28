@@ -17,21 +17,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let nav = UINavigationController(rootViewController: SplashScreenViewController.instantiate())
+        // Simple appearance customization
+        UINavigationBar.appearance().barTintColor = UIColor.beehiveBrand
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
+        UIBarButtonItem.appearance().tintColor = UIColor.black
 
+        // Setup the window and root view controller
+        let nav = UINavigationController(rootViewController: SplashScreenViewController.instantiate())
         let window = UIWindow(windowScene: windowScene)
         window.backgroundColor = UIColor.white
         window.rootViewController = nav
         self.window = window
         window.makeKeyAndVisible()
 
+        // Initialize the app
         AppProxy.proxy.initialize()
-            .ensure { self.showAppWindow(nav: nav) }
-            .cauterize()
-    }
-
-    func showAppWindow(nav: UINavigationController) {
-        Bootstrap.startFlow(stateMachine: StartupFlowController(), nav: nav)
+                .ensure {
+                    Bootstrap.startFlow(stateMachine: StartupFlowController(), nav: nav)
+                }
+                .cauterize()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

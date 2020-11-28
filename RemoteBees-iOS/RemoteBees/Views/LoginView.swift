@@ -19,9 +19,9 @@ struct LoginView: FlowableView {
 
     public let resolver: Resolver<Output>
 
-    @State var error: Error?
-    @State var email: String = ""
-    @State var password: String = ""
+    @State private var error: Error?
+    @State private var email: String = ""
+    @State private var password: String = ""
     
     init(context: Error?, resolver: Resolver<Output>) {
         self.resolver = resolver
@@ -30,34 +30,34 @@ struct LoginView: FlowableView {
 
     var body: some View {
         VStack {
-            Spacer().frame(height: 50)
+            Spacer().frame(height: 20)
 
             TextField("Email", text: $email)
-                .padding()
+                .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
                 .padding(10)
             SecureField("Password", text: $password)
-                .padding()
+                .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
+                .padding(.horizontal, 10)
                 .padding(.bottom, 20)
 
-            Button("LOG IN", action: self.onLogIn)
+            Button("Submit", action: self.onLogIn)
                 .font(.system(size: 20))
                 .foregroundColor(Color.white)
                 .frame(width: 250, height: 50, alignment: .center)
                 .background(RoundedCorners(color: Color.beehiveBrand, tl: 10, tr: 10, bl: 10, br: 10))
                 .padding(.bottom, 20)
 
-            Button("Forgot Password", action: self.onForgotPassword)
+            Button("Forgot Password?", action: self.onForgotPassword)
                 .font(.system(size: 15))
                 .foregroundColor(Color.beehiveBrand)
 
             Spacer()
         }
+        .navigationBarTitle("Login")
     }
 
     private func onLogIn() {

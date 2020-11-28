@@ -18,11 +18,11 @@ struct SignUpView: FlowableView {
 
     public let resolver: Resolver<Output>
 
-    @State var error: Error?
-    @State var firstName: String = ""
-    @State var lastName: String = ""
-    @State var email: String = ""
-    @State var password: String = ""
+    @State private var error: Error?
+    @State private var firstName: String = ""
+    @State private var lastName: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
     
     init(context: Error?, resolver: Resolver<Output>) {
         self.resolver = resolver
@@ -31,38 +31,34 @@ struct SignUpView: FlowableView {
 
     var body: some View {
         VStack {
-            Spacer().frame(height: 50)
+            Spacer().frame(height: 30)
 
             TextField("First Name", text: $firstName)
-                .padding()
+                .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
-                .padding(.bottom, 5)
+                .padding(.horizontal, 10.0)
+                .padding(.bottom, 5.0)
             TextField("Last Name", text: $lastName)
-                .padding()
+                .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
-                .padding(.bottom, 5)
+                .padding(.horizontal, 10.0)
+                .padding(.bottom, 5.0)
             TextField("Email", text: $email)
-                .padding()
+                .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
-                .padding(.bottom, 5)
+                .padding(.horizontal, 10.0)
+                .padding(.bottom, 5.0)
             SecureField("Password", text: $password)
-                .padding()
+                .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
-                .padding(.bottom, 20)
+                .padding(.horizontal, 10.0)
+                .padding(.bottom, 20.0)
 
-            Button("SIGN UP", action: self.onSignUp)
+            Button("Submit", action: self.onSignUp)
                 .font(.system(size: 20))
                 .foregroundColor(Color.white)
                 .frame(width: 250, height: 50, alignment: .center)
@@ -71,6 +67,7 @@ struct SignUpView: FlowableView {
 
             Spacer()
         }
+        .navigationBarTitle("Sign Up")
     }
 
     private func onSignUp() {

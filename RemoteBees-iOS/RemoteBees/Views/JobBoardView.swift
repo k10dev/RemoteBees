@@ -13,13 +13,27 @@ struct JobBoardView: FlowableView {
 
     public let resolver: Resolver<Output>
     
+    @State private var searchText: String = ""
+    
     init(context: Void, resolver: Resolver<Output>) {
         self.resolver = resolver
     }
 
     var body: some View {
         VStack {
-            Text("Job Board")
+            Spacer().frame(height: 10)
+            JobSearchBar(text: $searchText)
+            Spacer()
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                VStack {
+                    Text("Remote Bees").font(.headline)
+                    Text("Find Your Happiness").font(.subheadline).foregroundColor(Color.white)
+                }
+            }
         }
     }
 

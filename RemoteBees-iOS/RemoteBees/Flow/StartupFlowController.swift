@@ -10,8 +10,8 @@ import RemoteBeesFlow
 import Logging
 
 class StartupFlowController: ViewCache, NavStateMachine, StartupStateMachine {
-
     var nav: UINavigationController!
+
     private lazy var logger = Logger(label: "dev.beehive.RemoteBees/StartupFlow")
 
     func onBegin(state: StartupState, context: Void) -> Promise<StartupState.Begin> {

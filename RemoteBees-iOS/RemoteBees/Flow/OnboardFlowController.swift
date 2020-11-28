@@ -32,20 +32,25 @@ class OnboardFlowController: ViewCache, NavStateMachine, OnboardStateMachine {
     
     func onLogin(state: OnboardState, context: Void) -> Promise<OnboardState.Login> {
         return self.subflow(to: LoginFlowController(), context: context)
-                   .map { .end(()) }
+                   .map { .jobBoard(()) }
                    .back { .prompt(()) }
                    .cancel { .prompt(()) }
     }
 
     func onSignUp(state: OnboardState, context: Void) -> Promise<OnboardState.SignUp> {
         return self.subflow(to: SignUpFlowController(), context: context)
-                   .map { .end(()) }
+                   .map { .jobBoard(()) }
                    .back { .prompt(()) }
                    .cancel { .prompt(()) }
     }
-    
+
     func onSkip(state: OnboardState, context: Void) -> Promise<OnboardState.Skip> {
-        return Promise.value(.end(()))
+        return Promise.value(.jobBoard(()))
+    }
+
+    func onJobBoard(state: OnboardState, context: Void) -> Promise<OnboardState.JobBoard> {
+        return self.subflow(to: JobBoardFlowController(), context: context)
+                   .map { .end(()) }
     }
 
 }

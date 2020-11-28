@@ -17,9 +17,7 @@ class JobBoardFlowController: ViewCache, NavStateMachine, JobBoardStateMachine {
 
     func onMain(state: JobBoardState, context: Void) -> Promise<JobBoardState.Main> {
         return self.subflow(to: JobBoardView.self, context: context)
-                   .map {
-                        .end(())
-                   }
+                   .map { .end(()) }
     }
 
     func onLogin(state: JobBoardState, context: Void) -> Promise<JobBoardState.Login> {
@@ -30,6 +28,7 @@ class JobBoardFlowController: ViewCache, NavStateMachine, JobBoardStateMachine {
     }
 
     func onProfile(state: JobBoardState, context: Void) -> Promise<JobBoardState.Profile> {
+        // TODO
         return Promise(error: FlowError.canceled)
     }
 
