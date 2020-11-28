@@ -26,4 +26,8 @@ public class RemoteBeesServiceManager: ServiceManager {
         return RemotiveBeehiveService(config: self.configuration.remotive(), couchbaseDb: self.couchbaseDb)
     }
 
+    public var contentService: ContentService {
+        return RemoteBeesContentService(config: self.configuration.content())
+    }
+
 }

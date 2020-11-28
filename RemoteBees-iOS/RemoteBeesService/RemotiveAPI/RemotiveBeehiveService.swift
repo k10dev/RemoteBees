@@ -3,6 +3,7 @@
 //  RemoteBees
 //
 
+import UIKit
 import HTTPServiceKit
 import PromiseKit
 import CouchbaseLiteSwift
@@ -22,7 +23,7 @@ class RemotiveBeehiveService: HTTPService, BeehiveService {
                 return Promise.value(jobs)
             }
             let cache = CacheCriteria(policy: .useAge, age: CacheAge.oneDay.interval)
-            let p: Promise<Jobs> = self.get(route: "/remote-jobs", cacheCriteria: cache)
+            let p: Promise<Jobs> = self.get(route: "api/remote-jobs", cacheCriteria: cache)
             return p.map { $0.jobs }
                     .map(on: DispatchQueue.global()) {
                         try self.couchbaseDb?.saveJobs($0)
@@ -47,8 +48,17 @@ class RemotiveBeehiveService: HTTPService, BeehiveService {
             case .listing(let listing):
                 queryParams.addQueryParameter(name: "search", value: listing)
         }
-        let p: Promise<Jobs> = self.get(route: "/remote-jobs", query: queryParams)
+        let p: Promise<Jobs> = self.get(route: "api/remote-jobs", query: queryParams)
         return p.map { $0.jobs }
+    }
+
+    func getCompanyLogo(_ id: Int) -> Promise<UIImage?> {
+        let criteria = CacheCriteria(policy: CachePolicy.useAge, age: CacheAge.immortal.interval)
+        let p: Promise<Result?> = self.get(route: "web/image/hr.job/\(id)/logo", cacheCriteria: criteria)
+        return p.map(on: DispatchQueue.global()) { result in
+            guard let data = result?.body else { return nil }
+            return UIImage(data: data)
+        }
     }
 
 }

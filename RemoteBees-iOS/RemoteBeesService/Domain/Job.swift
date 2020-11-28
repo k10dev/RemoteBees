@@ -17,7 +17,7 @@ public struct Jobs: Codable {
     }
 }
 
-public struct Job: Codable {
+public struct Job: Hashable, Codable, Identifiable {
     public let id: Int
     public let url: String
     public let title: String
@@ -45,5 +45,4 @@ public struct Job: Codable {
         case description
         case documentType
     }
-
 }

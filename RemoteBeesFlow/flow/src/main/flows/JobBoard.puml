@@ -6,10 +6,23 @@ title JobBoard
 
 Main --> Login
 Main --> Profile
+Main --> Search
+Main --> ViewDetail
 
 Login --> Main
 Profile --> Main
+Search --> Main
+ViewDetail --> Main
 
 Main --> [*]
+
+ViewDetail: JobItem
+
+!$export_lang = %getenv("export_lang")
+!if ($export_lang == "swift")
+Main: Promise<[JobItem]>
+!else
+Main: AsyncJobItems
+!endif
 
 @enduml

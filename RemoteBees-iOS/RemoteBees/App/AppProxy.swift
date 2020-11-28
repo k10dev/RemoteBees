@@ -40,18 +40,14 @@ final class AppProxy {
         RemoteBeesServiceConfiguration(
             environment: .development,
             localeIdentifier: Locale.current.identifier,
-            logger: RemoteBeesServiceLogger())
+            logger: RemoteBeesServiceLogger()
+        )
 
     private(set) var serviceManager: ServiceManager!
 
     func initialize() -> Promise<Void> {
         self.serviceManager = RemoteBeesServiceManager(configuration: self.serviceConfiguration)
-
-        return self.serviceManager.beehiveService.getAllJobs()
-                    .done {
-                        $0.forEach { print($0.companyName) }
-                    }
-
+        return Promise()
     }
 
 }

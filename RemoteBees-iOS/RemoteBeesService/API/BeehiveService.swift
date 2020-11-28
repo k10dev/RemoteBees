@@ -3,6 +3,7 @@
 //  RemoteBees
 //
 
+import UIKit
 import PromiseKit
 
 public enum JobSearchType {
@@ -18,5 +19,7 @@ public protocol BeehiveService {
     func getJob(_ id: Int) -> Promise<Job?>
 
     func searchJobs(by type: JobSearchType) -> Promise<[Job]>
+
+    func getCompanyLogo(_ id: Int) -> Promise<UIImage?>
 
 }

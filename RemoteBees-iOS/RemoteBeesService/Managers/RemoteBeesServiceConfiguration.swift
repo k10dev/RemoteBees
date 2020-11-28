@@ -14,7 +14,7 @@ public enum RemoteBeesServiceEnvironment: String {
     var remotiveUrl: URL {
         switch self {
             case .development, .staging, .production:
-                return URL(string: "https://remotive.io/api")!
+                return URL(string: "https://remotive.io/")!
         }
     }
 }
@@ -51,6 +51,14 @@ extension RemoteBeesServiceConfiguration {
         ]
     }()
 
+    func content() -> HTTPService.Config {
+        var httpServiceConfig = HTTPService.Config(baseUrl: nil)
+        httpServiceConfig.requestTimeoutInterval = self.requestTimeoutInterval
+        httpServiceConfig.headers.merge(["Cache-Control": "no-cache"]) { (_, new) in new }
+        httpServiceConfig.cacheStore = URLCache.shared
+        return httpServiceConfig
+    }
+
     func remotive() -> HTTPService.Config {
         var httpServiceConfig = HTTPService.Config(baseUrl: self.environment.remotiveUrl)
         
@@ -72,6 +80,10 @@ extension RemoteBeesServiceConfiguration {
         httpServiceConfig.headers.merge(headers) { (_, new) in new }
         httpServiceConfig.decoders = Self.decoders
         httpServiceConfig.logger = self.logger
+        httpServiceConfig.cacheStore = URLCache.shared
+        httpServiceConfig.requestTimeoutInterval = self.requestTimeoutInterval
+
         return httpServiceConfig
     }
+    
 }
