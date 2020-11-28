@@ -23,6 +23,8 @@ struct JobBoardView: FlowableView {
 
     @State private var searchText: String = ""
     @State private var jobItems: [JobItem] = []
+    @State private var isLoading = true
+
     private var context: Input
 
     init(context: Input, resolver: Resolver<Output>) {
@@ -31,19 +33,29 @@ struct JobBoardView: FlowableView {
     }
 
     var body: some View {
-        VStack {
-            Spacer().frame(height: 10)
-            JobSearchBar(text: $searchText)
-            List(self.jobItems) { jobItem in
-                JobRow(job: jobItem)
-                    .onTapGesture {
-                        self.onSelect(jobItem)
-                    }
+        ZStack {
+            VStack {
+                Spacer().frame(height: 10)
+                JobSearchBar(text: $searchText)
+                List(self.jobItems) { jobItem in
+                    JobRow(job: jobItem)
+                        .onTapGesture {
+                            self.onSelect(jobItem)
+                        }
+                }
+                Spacer()
             }
-            Spacer()
-        }
-        .onAppear {
-            self.context.done { self.jobItems = $0 }.cauterize()
+            .onAppear {
+                self.context.done {
+                    self.isLoading = false
+                    self.jobItems = $0
+                }.cauterize()
+            }
+
+            if self.isLoading {
+                LoadingView()
+                    .frame(width: 130.0, height: 100.0, alignment: .center)
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)

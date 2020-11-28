@@ -19,7 +19,13 @@ class StartupFlowController: ViewCache, NavStateMachine, StartupStateMachine {
     }
 
     func onEntry(state: StartupState, context: Void) -> Promise<StartupState.Entry> {
-        return Promise.value(.onboard(context))
+        var preferences = UserDefaults.preferences()
+        if preferences.firstTimeUsed {
+            preferences.firstTimeUsed = false
+            return .value(.onboard(context))
+        } else {
+            return .value(.jobBoard(context))
+        }
     }
 
     func onOnboard(state: StartupState, context: Void) -> Promise<StartupState.Onboard> {
