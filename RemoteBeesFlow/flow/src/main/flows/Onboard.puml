@@ -11,6 +11,8 @@ Prompt --> Skip
 Login --> Prompt
 SignUp --> Prompt
 
+Login --> [*]
+SignUp --> [*]
 Skip --> [*]
 
 @enduml

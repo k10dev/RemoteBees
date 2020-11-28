@@ -5,6 +5,7 @@
 
 import UIKit
 import PromiseKit
+import FlowKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -30,8 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func showAppWindow(nav: UINavigationController) {
-        print("Show window")
-//        Bootstrap.startFlow(stateMachine: StartupFlowController(), nav: nav)
+        Bootstrap.startFlow(stateMachine: StartupFlowController(), nav: nav)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
