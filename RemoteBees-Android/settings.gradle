@@ -1,0 +1,3 @@
+rootProject.name = "RemoteBees"
+include ':app', ':RemoteBeesService', 'RemoteBeesFlow'
+project(':RemoteBeesFlow').projectDir = new File('../RemoteBeesFlow/flow')
