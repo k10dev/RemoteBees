@@ -24,11 +24,11 @@ class RemotiveBeehiveService: HTTPService, BeehiveService {
             }
             let cache = CacheCriteria(policy: .useAge, age: CacheAge.oneDay.interval)
             let p: Promise<Jobs> = self.get(route: "api/remote-jobs", cacheCriteria: cache)
-            return p.map { $0.jobs }
-                    .map(on: DispatchQueue.global()) {
-                        try self.couchbaseDb?.saveJobs($0)
-                        return $0
-                    }
+            return p.map(on: DispatchQueue.global()) {
+                let jobs = $0.jobs
+                try self.couchbaseDb?.saveJobs(jobs)
+                return jobs
+            }
         }
     }
 
