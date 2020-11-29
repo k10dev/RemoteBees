@@ -15,6 +15,18 @@ enum JobBoardViewResponse {
     case select(job: JobItem)
 }
 
+final class JobsContainer: ObservableObject {
+    @Published var jobs: [JobItem] = []
+    @Published var isPending = true
+
+    init(promise: Promise<[JobItem]>) {
+        promise.done {
+            self.isPending = false
+            self.jobs = $0
+        }.cauterize()
+    }
+}
+
 struct JobBoardView: FlowableView {
     typealias Input = Promise<[JobItem]>
     typealias Output = JobBoardViewResponse
@@ -22,22 +34,30 @@ struct JobBoardView: FlowableView {
     public let resolver: Resolver<Output>
 
     @State private var searchText: String = ""
-    @State private var jobItems: [JobItem] = []
-    @State private var isLoading = true
-
-    private var context: Input
+    @ObservedObject var jobsContainer: JobsContainer
 
     init(context: Input, resolver: Resolver<Output>) {
         self.resolver = resolver
-        self.context = context
+        self.jobsContainer = JobsContainer(promise: context)
+        UITextField.appearance().clearButtonMode = .whileEditing
     }
 
     var body: some View {
         ZStack {
             VStack {
                 Spacer().frame(height: 10)
-                JobSearchBar(text: $searchText)
-                List(self.jobItems) { jobItem in
+                HStack {
+                    TextField("Job title, keywords, or company", text: $searchText)
+                        .padding(10)
+                        .background(Color.lightGrey)
+                        .cornerRadius(5)
+                        .padding(.horizontal, 10)
+         
+                    Button("Search", action: self.onSearch)
+                        .padding(.trailing, 10)
+                        .foregroundColor(Color.beehiveBrand)
+                }
+                List(self.jobsContainer.jobs) { jobItem in
                     JobRow(job: jobItem)
                         .onTapGesture {
                             self.onSelect(jobItem)
@@ -45,14 +65,8 @@ struct JobBoardView: FlowableView {
                 }
                 Spacer()
             }
-            .onAppear {
-                self.context.done {
-                    self.isLoading = false
-                    self.jobItems = $0
-                }.cauterize()
-            }
 
-            if self.isLoading {
+            if self.jobsContainer.isPending {
                 LoadingView()
                     .frame(width: 130.0, height: 100.0, alignment: .center)
             }
@@ -71,6 +85,11 @@ struct JobBoardView: FlowableView {
     
     private func onSelect(_ job: JobItem) {
         self.resolve(.select(job: job))
+    }
+
+    private func onSearch() {
+        self.jobsContainer.isPending = true
+        self.resolve(.search(term: self.searchText))
     }
 
 }

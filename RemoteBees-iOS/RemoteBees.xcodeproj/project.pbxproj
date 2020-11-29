@@ -31,7 +31,6 @@
 		6156AA6925720FB600FADE2B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156AA6825720FB600FADE2B /* SignUpView.swift */; };
 		6156AA74257213FF00FADE2B /* JobBoardFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156AA73257213FF00FADE2B /* JobBoardFlowController.swift */; };
 		6156AA7C257214B300FADE2B /* JobBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156AA7B257214B300FADE2B /* JobBoardView.swift */; };
-		6156AA8E2572C81800FADE2B /* JobSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156AA8D2572C81800FADE2B /* JobSearchBar.swift */; };
 		6156AA9E2572DCC800FADE2B /* JobRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156AA9D2572DCC800FADE2B /* JobRow.swift */; };
 		6156AAB52572F33D00FADE2B /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156AAB42572F33D00FADE2B /* ContentService.swift */; };
 		6156AABB2572F3BB00FADE2B /* RemoteBeesContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156AABA2572F3BB00FADE2B /* RemoteBeesContentService.swift */; };
@@ -122,7 +121,6 @@
 		6156AA6825720FB600FADE2B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		6156AA73257213FF00FADE2B /* JobBoardFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobBoardFlowController.swift; sourceTree = "<group>"; };
 		6156AA7B257214B300FADE2B /* JobBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobBoardView.swift; sourceTree = "<group>"; };
-		6156AA8D2572C81800FADE2B /* JobSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchBar.swift; sourceTree = "<group>"; };
 		6156AA9D2572DCC800FADE2B /* JobRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRow.swift; sourceTree = "<group>"; };
 		6156AAB42572F33D00FADE2B /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
 		6156AABA2572F3BB00FADE2B /* RemoteBeesContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBeesContentService.swift; sourceTree = "<group>"; };
@@ -327,7 +325,6 @@
 				6156AA5B25720D1200FADE2B /* ForgotPasswordView.swift */,
 				6156AA7B257214B300FADE2B /* JobBoardView.swift */,
 				6156AA9D2572DCC800FADE2B /* JobRow.swift */,
-				6156AA8D2572C81800FADE2B /* JobSearchBar.swift */,
 				6156AAE025730A3100FADE2B /* LoadingView.swift */,
 				6156AA502571FEAD00FADE2B /* LoginView.swift */,
 				6156AADB25730A0500FADE2B /* LottieView.swift */,
@@ -631,7 +628,6 @@
 				61E75D30256891B700067613 /* RemoteBeesServiceConfiguration.swift in Sources */,
 				61E75D262568917500067613 /* Job.swift in Sources */,
 				6156AADC25730A0500FADE2B /* LottieView.swift in Sources */,
-				6156AA8E2572C81800FADE2B /* JobSearchBar.swift in Sources */,
 				61E75CF7256887E600067613 /* UIStoryboard+Extension.swift in Sources */,
 				6156AAF225730D0C00FADE2B /* UserDefaults+Preferences.swift in Sources */,
 				61A6C99C256859CC00A2034B /* SceneDelegate.swift in Sources */,

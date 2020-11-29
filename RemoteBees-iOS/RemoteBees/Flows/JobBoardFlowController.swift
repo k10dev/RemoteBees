@@ -14,13 +14,7 @@ class JobBoardFlowController: ViewCache, NavStateMachine, JobBoardStateMachine {
     private var jobItems: [JobItem] = []
 
     func onBegin(state: JobBoardState, context: Void) -> Promise<JobBoardState.Begin> {
-        let jobItems = AppProxy.proxy.serviceManager.beehiveService.getAllJobs()
-                               .map { jobs -> [JobItem] in
-                                    let jobItems: [JobItem] = jobs.map { $0.toJobItem() }
-                                    self.jobItems = jobItems
-                                    return jobItems
-                               }
-        return Promise.value(.main(jobItems))
+        return Promise.value(.main(self.getAllJobs()))
     }
 
     func onMain(state: JobBoardState, context: Promise<[JobItem]>) -> Promise<JobBoardState.Main> {
@@ -32,7 +26,7 @@ class JobBoardFlowController: ViewCache, NavStateMachine, JobBoardStateMachine {
                             case .login:
                                 return .login(())
                             case .search(let term):
-                                return .search(())
+                                return .search(term)
                             case .select(let job):
                                 return .viewDetail(job)
                         }
@@ -51,9 +45,17 @@ class JobBoardFlowController: ViewCache, NavStateMachine, JobBoardStateMachine {
         return Promise(error: FlowError.canceled)
     }
 
-    func onSearch(state: JobBoardState, context: Void) -> Promise<JobBoardState.Search> {
-        // TODO
-        return Promise(error: FlowError.canceled)
+    func onSearch(state: JobBoardState, context: String) -> Promise<JobBoardState.Search> {
+        guard !context.isEmpty else {
+            return Promise.value(.main(self.getAllJobs()))
+        }
+
+        return AppProxy.proxy.serviceManager.beehiveService.searchJobs(by: .listing(context))
+                        .map { jobs -> JobBoardState.Search in
+                            let jobItems: [JobItem] = jobs.map { $0.toJobItem() }
+                            self.jobItems = jobItems
+                            return .main(.value(jobItems))
+                        }
     }
 
     func onViewDetail(state: JobBoardState, context: JobItem) -> Promise<JobBoardState.ViewDetail> {
@@ -72,6 +74,14 @@ class JobBoardFlowController: ViewCache, NavStateMachine, JobBoardStateMachine {
         }
     }
 
+    private func getAllJobs() -> Promise<[JobItem]> {
+        return AppProxy.proxy.serviceManager.beehiveService.getAllJobs()
+                               .map { jobs -> [JobItem] in
+                                    let jobItems: [JobItem] = jobs.map { $0.toJobItem() }
+                                    self.jobItems = jobItems
+                                    return jobItems
+                               }
+    }
 }
 
 extension Job {

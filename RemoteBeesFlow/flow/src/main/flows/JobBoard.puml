@@ -17,6 +17,7 @@ ViewDetail --> Main
 Main --> [*]
 
 ViewDetail: JobItem
+Search: String
 
 !$export_lang = %getenv("export_lang")
 !if ($export_lang == "swift")
