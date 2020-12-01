@@ -1,6 +1,8 @@
 package dev.beehive.remotebees.service.internal.couchbase
 
 import com.inmotionsoftware.httpservice.coder.DecoderException
+import com.inmotionsoftware.httpservice.coder.URIJsonAdapter
+import com.inmotionsoftware.httpservice.coder.URLJsonAdapter
 import com.inmotionsoftware.httpservice.coder.UUIDJsonAdapter
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi

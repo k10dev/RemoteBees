@@ -17,7 +17,7 @@ data class Job(
     val category: String,
     val tags: List<String>,
     @Json(name="job_type") val jobType: String,
-    @Json(name="publication_date") val publicationDate: Date,
+    @Json(name="publication_date") val publicationDate: String,
     @Json(name="candidate_required_location") val candidateRequiredLocation: String,
     val salary: String,
     val description: String,

@@ -11,6 +11,6 @@ data class JobItem (
     val title: String,
     val companyName: String,
     val category: String,
-    val publicationDate: Date,
+    val publicationDate: String,
     val salary : String
 ): Parcelable
