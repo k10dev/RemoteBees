@@ -1,40 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-        <EditText
-            android:id="@+id/searchEdit"
-            android:layout_weight="0"
-            android:layout_width="260dp"
-            android:layout_height="50dp"
-            android:ems="15"
-            android:hint="Job title, keywords, or company"
-            />
-        <Button
-            android:id="@+id/searchBtn"
-            android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:text="Search" />
+            android:layout_marginTop="20dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/searchEdit"
+                android:layout_weight="0"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                android:textSize="17sp"
+                android:lines="1"
+                android:inputType="textCapWords"
+                android:hint="Job title, keywords, or company" />
+            <Button
+                android:id="@+id/searchBtn"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:text="Search" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/jobBoardRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/jobBoardRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        app:lottie_autoPlay="true"
+        app:lottie_speed="1"
+        app:lottie_fileName="bee-flying.json"
+        app:lottie_loop="true"/>
 
-</LinearLayout>
+</FrameLayout>

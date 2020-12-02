@@ -14,6 +14,7 @@
         android:layout_margin="10dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
+        android:src="@drawable/logo_placeholder"
         />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

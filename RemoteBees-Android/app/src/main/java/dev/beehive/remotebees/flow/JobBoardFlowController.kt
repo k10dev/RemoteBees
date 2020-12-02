@@ -1,11 +1,16 @@
 package dev.beehive.remotebees.flow
 
+import android.net.Uri
 import android.os.Parcelable
+import androidx.browser.customtabs.CustomTabsIntent
 import com.inmotionsoftware.flowkit.android.StateMachineActivity
 import com.inmotionsoftware.flowkit.back
 import com.inmotionsoftware.flowkit.cancel
+import com.inmotionsoftware.httpservice.concurrent.DispatchExecutor
 import com.inmotionsoftware.promisekt.Promise
+import com.inmotionsoftware.promisekt.features.after
 import com.inmotionsoftware.promisekt.map
+import com.inmotionsoftware.promisekt.then
 import dev.beehive.remotebees.app.AppProxy
 import dev.beehive.remotebees.fragment.JobBoardFragment
 import dev.beehive.remotebees.service.api.JobSearchType
@@ -123,7 +128,13 @@ class JobBoardFlowController() : StateMachineActivity<JobBoardState, Unit, Unit>
         state: JobBoardState,
         context: JobItem
     ): Promise<JobBoardState.FromViewDetail> {
-        TODO("Not yet implemented")
+        val builder = CustomTabsIntent.Builder()
+        val intent = builder.build()
+        intent.launchUrl(this, Uri.parse(context.url))
+
+        return Promise.value(Unit)
+                .then(on = DispatchExecutor.global) { after(1.0) }
+                .map {  JobBoardState.FromViewDetail.Main(this.jobItems)  }
     }
 
 }

@@ -7,8 +7,7 @@ import com.inmotionsoftware.flowkit.cancel
 import com.inmotionsoftware.promisekt.Promise
 import com.inmotionsoftware.promisekt.thenMap
 import dev.beehive.remotebees.app.AppProxy
-import dev.beehive.remotebees.flow.StartupFlowController
-import dev.beehive.remotebees.flow.StartupState
+import dev.beehive.remotebees.flow.*
 import kotlin.system.exitProcess
 
 class SplashActivity : BootstrapActivity() {
@@ -21,7 +20,15 @@ class SplashActivity : BootstrapActivity() {
     override fun onBegin(state: State, context: Unit): Promise<Unit> {
         return AppProxy.proxy.initialize()
             .thenMap {
-                this.subflow(stateMachine = StartupFlowController::class.java, state = StartupState.Begin(Unit))
+                // this.subflow(stateMachine = StartupFlowController::class.java, state = StartupState.Begin(Unit))
+
+                val preferences = AppProxy.proxy.preferences
+                if (preferences.firstTimeUsed) {
+                    preferences.firstTimeUsed = false
+                    this.subflow(stateMachine= OnboardFlowController::class.java, state=OnboardState.Begin(context))
+                } else {
+                    this.subflow(stateMachine = JobBoardFlowController::class.java, state= JobBoardState.Begin(context))
+                }
             }
             .back {
                 exitProcess(0)

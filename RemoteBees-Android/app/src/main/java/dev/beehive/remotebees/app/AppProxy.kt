@@ -8,8 +8,8 @@ import com.inmotionsoftware.logging.LogHandler
 import com.inmotionsoftware.logging.LoggingSystem
 import com.inmotionsoftware.logging.MultiplexLogHandler
 import com.inmotionsoftware.logging.android.AndroidLogcatHandler
-import com.inmotionsoftware.promisekt.PMKConfiguration
-import com.inmotionsoftware.promisekt.Promise
+import com.inmotionsoftware.promisekt.*
+import com.inmotionsoftware.promisekt.features.after
 import dev.beehive.remotebees.BuildConfig
 import dev.beehive.remotebees.service.api.manager.ServiceManager
 import dev.beehive.remotebees.service.manager.RemoteBeesServiceConfiguration
@@ -59,7 +59,6 @@ open class AppProxy : Application() {
 
             MultiplexLogHandler(handlers)
         }
-
     }
 
     fun initialize(): Promise<Unit> {
@@ -71,7 +70,9 @@ open class AppProxy : Application() {
             )
 
         this.serviceManager = RemoteBeesServiceManager(configuration = serviceConfiguration)
-        return Promise.value(Unit)
+
+        // Mimic initialization delay
+        return after(1.0).map { Unit }
     }
 
 }

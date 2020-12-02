@@ -16,16 +16,16 @@ class LoginFlowController : StateMachineActivity<LoginState, Unit, Unit>(), Logi
 
     override fun onPrompt(state: LoginState, context: Unit): Promise<LoginState.FromPrompt> {
         return this.subflow2(fragment = LoginFragment::class.java, context = context)
-            .map {
-                when (it) {
-                    is LoginFragment.Response.ForgotPassword -> {
-                        LoginState.FromPrompt.ForgotPassword(Unit)
+                    .map {
+                        when (it) {
+                            is LoginFragment.Response.ForgotPassword -> {
+                                LoginState.FromPrompt.ForgotPassword(Unit)
+                            }
+                            is LoginFragment.Response.Login -> {
+                                LoginState.FromPrompt.SubmitLogin(Unit)
+                            }
+                        }
                     }
-                    is LoginFragment.Response.Login -> {
-                        LoginState.FromPrompt.SubmitLogin(Unit)
-                    }
-                }
-            }
     }
 
     override fun onForgotPassword(

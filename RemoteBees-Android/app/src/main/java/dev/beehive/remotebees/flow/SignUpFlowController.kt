@@ -13,13 +13,13 @@ class SignUpFlowController : StateMachineActivity<SignUpState, Unit, Unit>(), Si
 
     override fun onPrompt(state: SignUpState, context: Unit): Promise<SignUpState.FromPrompt> {
         return this.subflow2(fragment = SignUpFragment::class.java, context = Unit)
-            .map {
-                when (it) {
-                    is SignUpFragment.Response.SignUp -> {
-                        Promise.value(SignUpState.FromPrompt.SubmitSignUp(Unit)) as SignUpState.FromPrompt
+                    .map {
+                        when (it) {
+                            is SignUpFragment.Response.SignUp -> {
+                                Promise.value(SignUpState.FromPrompt.SubmitSignUp(Unit)) as SignUpState.FromPrompt
+                            }
+                        }
                     }
-                }
-            }
     }
 
     override fun onSubmitSignUp(

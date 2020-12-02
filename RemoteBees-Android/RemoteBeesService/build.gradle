@@ -44,7 +44,7 @@ dependencies {
 
     // Promise dependency
     implementation "com.github.inmotionsoftware:promisekt:1.0.0"
-    api "com.github.inmotionsoftware:HTTPServiceKt:main-SNAPSHOT"
+    api "com.github.inmotionsoftware:HTTPServiceKt:coder-SNAPSHOT"
 
     implementation "com.couchbase.lite:couchbase-lite-android:2.7.0"
 }
