@@ -4,14 +4,14 @@ import dev.beehive.remotebees.service.api.BeehiveService
 import dev.beehive.remotebees.service.api.manager.ServiceManager
 import dev.beehive.remotebees.service.internal.RemotiveBeehiveService
 import dev.beehive.remotebees.service.internal.couchbase.CouchbaseLiteDb
+import java.lang.IllegalArgumentException
 
 class RemoteBeesServiceManager(private val configuration: RemoteBeesServiceConfiguration): ServiceManager {
     private var couchbaseDb: CouchbaseLiteDb? = null
 
     init {
-        this.configuration.context.get()?.let {
-            this.couchbaseDb = CouchbaseLiteDb(it, "RemoteBees", this.configuration.localeIdentifier)
-        }
+        val context = this.configuration.context.get() ?: throw IllegalArgumentException("Context is null")
+        this.couchbaseDb = CouchbaseLiteDb(context, "RemoteBees", this.configuration.localeIdentifier)
     }
 
     override val beehiveService: BeehiveService

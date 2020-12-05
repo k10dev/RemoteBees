@@ -21,16 +21,10 @@ class CouchbaseLiteDb(
         CouchbaseLite.init(this.context)
         this.database = Database(name, DatabaseConfiguration())
 
-        val prefs: PreferencesDocument = {
-            when (val savedPrefs = this.getPreferences()) {
-                null -> {
-                    val newPrefs = PreferencesDocument(localeIdentifier = this.localeIdentifier)
-                    this.savePreferences(newPrefs)
-                    newPrefs
-                }
-                else ->
-                    savedPrefs
-            }
+        val prefs: PreferencesDocument = this.getPreferences() ?: {
+            val newPrefs = PreferencesDocument(localeIdentifier = this.localeIdentifier)
+                this.savePreferences(newPrefs)
+                newPrefs
         }()
 
         if (this.localeIdentifier != prefs.localeIdentifier) {

@@ -52,15 +52,13 @@ extension RemoteBeesServiceConfiguration {
     }()
 
     func content() -> HTTPService.Config {
-        var httpServiceConfig = HTTPService.Config(baseUrl: nil)
-        httpServiceConfig.requestTimeoutInterval = self.requestTimeoutInterval
+        var httpServiceConfig = self.defaultConfig()
         httpServiceConfig.headers.merge(["Cache-Control": "no-cache"]) { (_, new) in new }
-        httpServiceConfig.cacheStore = URLCache.shared
         return httpServiceConfig
     }
 
     func remotive() -> HTTPService.Config {
-        var httpServiceConfig = HTTPService.Config(baseUrl: self.environment.remotiveUrl)
+        var httpServiceConfig = self.defaultConfig(baseUrl: self.environment.remotiveUrl)
         
         // Configure headers as needed. For example
         var headers = [String: String]()
@@ -78,6 +76,11 @@ extension RemoteBeesServiceConfiguration {
         headers["Cache-Control"] = "no-cache"
 
         httpServiceConfig.headers.merge(headers) { (_, new) in new }
+        return httpServiceConfig
+    }
+    
+    private func defaultConfig(baseUrl: URL? = nil) -> HTTPService.Config {
+        var httpServiceConfig = HTTPService.Config(baseUrl: baseUrl)
         httpServiceConfig.decoders = Self.decoders
         httpServiceConfig.logger = self.logger
         httpServiceConfig.cacheStore = URLCache.shared
@@ -85,5 +88,4 @@ extension RemoteBeesServiceConfiguration {
 
         return httpServiceConfig
     }
-    
 }

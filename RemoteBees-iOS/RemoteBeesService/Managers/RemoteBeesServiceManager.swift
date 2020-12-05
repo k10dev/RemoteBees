@@ -11,9 +11,9 @@ public class RemoteBeesServiceManager: ServiceManager {
 
     private let configuration: RemoteBeesServiceConfiguration
 
-    public init(configuration: RemoteBeesServiceConfiguration) {
+    public init(configuration: RemoteBeesServiceConfiguration) throws {
         self.configuration = configuration
-        self.couchbaseDb = try? CouchbaseLite(name: "RemoteBees", localeIdentifier: configuration.localeIdentifier)
+        self.couchbaseDb = try CouchbaseLite(name: "RemoteBees", localeIdentifier: configuration.localeIdentifier)
     }
 
     deinit {

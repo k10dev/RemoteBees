@@ -62,17 +62,17 @@ open class AppProxy : Application() {
     }
 
     fun initialize(): Promise<Unit> {
-        val serviceConfiguration =
-            RemoteBeesServiceConfiguration(
-                context = WeakReference(this.applicationContext),
-                environment = RemoteBeesServiceEnvironment.Development,
-                localeIdentifier = this.currentLocale.identifier
-            )
-
-        this.serviceManager = RemoteBeesServiceManager(configuration = serviceConfiguration)
-
         // Mimic initialization delay
-        return after(1.0).map { Unit }
+        return after(seconds = 1.0).map {
+            val serviceConfiguration =
+                    RemoteBeesServiceConfiguration(
+                            context = WeakReference(this.applicationContext),
+                            environment = RemoteBeesServiceEnvironment.Development,
+                            localeIdentifier = this.currentLocale.identifier
+                    )
+
+            this.serviceManager = RemoteBeesServiceManager(configuration = serviceConfiguration)
+        }
     }
 
 }

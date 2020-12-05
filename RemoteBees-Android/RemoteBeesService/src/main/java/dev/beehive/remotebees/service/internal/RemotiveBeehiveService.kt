@@ -38,9 +38,7 @@ internal class RemotiveBeehiveService(
                 val cache = CacheCriteria(policy= CachePolicy.useAge, age= CacheAge.oneDay.interval)
                 this.get(route="api/remote-jobs", type=Jobs::class.java, cacheCriteria=cache)
                     .map(on=DispatchExecutor.global) {
-                        val jobs = it.jobs
-                        this.couchbaseDb?.saveJobs(jobs)
-                        jobs
+                        it.jobs.also { this.couchbaseDb?.saveJobs(it) }
                     }
             }
         }
@@ -80,7 +78,9 @@ internal class RemotiveBeehiveService(
 
 }
 
-// Couchbase Database Extension
+///
+/// CouchbaseLiteDb Extension
+///
 
 @Throws
 private fun CouchbaseLiteDb.saveJobs(jobs: List<Job>) {

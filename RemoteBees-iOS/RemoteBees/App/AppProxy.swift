@@ -46,8 +46,10 @@ final class AppProxy {
     private(set) var serviceManager: ServiceManager!
 
     func initialize() -> Promise<Void> {
-        self.serviceManager = RemoteBeesServiceManager(configuration: self.serviceConfiguration)
-        return Promise()
+        // Mimic initialization delay
+        return after(seconds: 1).map {
+            self.serviceManager = try RemoteBeesServiceManager(configuration: self.serviceConfiguration)
+        }
     }
 
 }

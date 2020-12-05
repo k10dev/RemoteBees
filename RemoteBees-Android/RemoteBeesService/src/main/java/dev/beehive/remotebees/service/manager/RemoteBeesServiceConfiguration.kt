@@ -35,31 +35,22 @@ data class RemoteBeesServiceConfiguration(
 // Extension
 
 internal fun RemoteBeesServiceConfiguration.content(): HTTPService.Config {
-    var httpServiceConfig = HTTPService.Config(baseUrl = null)
+    val httpServiceConfig = this.defaultConfig()
 
     val headers = HashMap<String, String>()
     headers["Cache-Control"] = "no-cache"
     httpServiceConfig.headers = headers
 
-    httpServiceConfig.cacheStore = this.context.get()?.let(this::cacheStore)
-    httpServiceConfig.requestTimeoutInterval = this.requestTimeoutInterval
     return httpServiceConfig
 }
 
 internal fun RemoteBeesServiceConfiguration.remotive(): HTTPService.Config {
-    val httpServiceConfig =
-        HTTPService.Config(baseUrl = URL("${this.environment.remotiveUrl}"))
+    val httpServiceConfig = this.defaultConfig(baseUrl = URL("${this.environment.remotiveUrl}"))
 
     val headers = HashMap<String, String>()
     headers["Accept-Language"] = this.localeIdentifier
     headers["Cache-Control"] = "no-cache"
     httpServiceConfig.headers = headers
-
-    httpServiceConfig.cacheStore = this.context.get()?.let(this::cacheStore)
-    httpServiceConfig.isAlwaysTrustHost = BuildConfig.DEBUG
-    httpServiceConfig.enableHttpLogging = if (BuildConfig.DEBUG) this.enableHttpLogging else false
-    httpServiceConfig.requestTimeoutInterval = this.requestTimeoutInterval
-    httpServiceConfig.logger = this.logger
 
     return httpServiceConfig
 }
@@ -69,4 +60,14 @@ private fun RemoteBeesServiceConfiguration.cacheStore(context: Context): CacheSt
     val diskCacheSize = 50 * 1024 * 1024
     val memCacheSize = 2 * 1024 * 1024
     return MemDiskLruCacheStore(cacheDir, diskCacheSize.toLong(), memCacheSize)
+}
+
+private fun RemoteBeesServiceConfiguration.defaultConfig(baseUrl: URL? = null): HTTPService.Config {
+    val httpServiceConfig = HTTPService.Config(baseUrl)
+
+    httpServiceConfig.cacheStore = this.context.get()?.let(this::cacheStore)
+    httpServiceConfig.isAlwaysTrustHost = BuildConfig.DEBUG
+    httpServiceConfig.requestTimeoutInterval = this.requestTimeoutInterval
+    httpServiceConfig.logger = this.logger
+    return httpServiceConfig
 }
