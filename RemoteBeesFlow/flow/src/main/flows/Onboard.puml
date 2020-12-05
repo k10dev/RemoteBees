@@ -10,16 +10,8 @@ Prompt --> Login
 Prompt --> SignUp
 Prompt --> Skip
 
-'Login --> JobBoard
 Login --> Prompt
-
-'SignUp --> JobBoard
 SignUp --> Prompt
-
-'Skip --> JobBoard
-
-' JobBoard --> [*]
-' Prompt --> [*]
 
 ' Temporary workaround for a FlowKit bug in Android where
 ' a flow returns Void/Unit would cause NullPointerException

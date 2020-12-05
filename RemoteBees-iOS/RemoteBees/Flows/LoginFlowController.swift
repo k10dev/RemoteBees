@@ -19,8 +19,8 @@ class LoginFlowController: ViewCache, NavStateMachine, LoginStateMachine {
         return self.subflow(to: LoginView.self, context: nil)
                     .map {
                         switch $0 {
-                            case .login(let email, let password):
-                                return .submitLogin(())
+                            case let .login(email, password):
+                                return .submitLogin(LoginContext(email: email, password: password))
                             case .forgotPassword:
                                 return .forgotPassword(())
                         }
@@ -31,19 +31,19 @@ class LoginFlowController: ViewCache, NavStateMachine, LoginStateMachine {
         return self.subflow(to: ForgotPasswordView.self, context: context)
                    .map {
                         switch $0 {
-                            case .sendResetPassword(let email):
-                                return .submitForgotPassword(())
+                            case let .sendResetPassword(email):
+                                return .submitForgotPassword(email)
                         }
                    }
                   .back { .prompt(()) }
                   .cancel { .prompt(()) }
     }
     
-    func onSubmitLogin(state: LoginState, context: Void) -> Promise<LoginState.SubmitLogin> {
+    func onSubmitLogin(state: LoginState, context: LoginContext) -> Promise<LoginState.SubmitLogin> {
         return Promise.value(.end(()))
     }
     
-    func onSubmitForgotPassword(state: LoginState, context: Void) -> Promise<LoginState.SubmitForgotPassword> {
+    func onSubmitForgotPassword(state: LoginState, context: String) -> Promise<LoginState.SubmitForgotPassword> {
         return Promise.value(.prompt(()))
     }
 

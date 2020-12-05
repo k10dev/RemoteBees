@@ -18,7 +18,14 @@ class SignUpFlowController : StateMachineActivity<SignUpState, Unit, Int>(), Sig
                     .map {
                         when (it) {
                             is SignUpFragment.Response.SignUp -> {
-                                SignUpState.FromPrompt.SubmitSignUp(Unit) as SignUpState.FromPrompt
+                                SignUpState.FromPrompt.SubmitSignUp(
+                                    SignUpContext(
+                                        firstName = it.firstname,
+                                        lastName = it.lastName,
+                                        email = it.email,
+                                        password = it.password
+                                    )
+                                ) as SignUpState.FromPrompt
                             }
                         }
                     }
@@ -26,7 +33,7 @@ class SignUpFlowController : StateMachineActivity<SignUpState, Unit, Int>(), Sig
 
     override fun onSubmitSignUp(
         state: SignUpState,
-        context: Unit
+        context: SignUpContext
     ): Promise<SignUpState.FromSubmitSignUp> {
         return Promise.value(SignUpState.FromSubmitSignUp.End(1))
 

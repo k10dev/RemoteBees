@@ -17,6 +17,9 @@ SubmitForgotPassword --> Prompt
 ForgotPassword --> Prompt
 SubmitLogin --> Prompt
 
+SubmitLogin: LoginContext
+SubmitForgotPassword: String
+
 ' Temporary workaround for a FlowKit bug in Android where
 ' a flow returns Void/Unit would cause NullPointerException
 !if ($export_lang == "swift")

@@ -16,6 +16,8 @@
 		6156A9E52571B04100FADE2B /* SignUp.puml in Sources */ = {isa = PBXBuildFile; fileRef = 6156A9E32571B04100FADE2B /* SignUp.puml */; };
 		6156A9F12571B31A00FADE2B /* JobBoard.puml in Sources */ = {isa = PBXBuildFile; fileRef = 6156A9F02571B31A00FADE2B /* JobBoard.puml */; };
 		6156AAA92572E6DC00FADE2B /* JobItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156AAA82572E6DC00FADE2B /* JobItem.swift */; };
+		619371AF257C2E1E003EC29E /* LoginContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619371AE257C2E1E003EC29E /* LoginContext.swift */; };
+		619371B3257C2E83003EC29E /* SignUpContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619371B2257C2E83003EC29E /* SignUpContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -62,6 +64,8 @@
 		6156A9F02571B31A00FADE2B /* JobBoard.puml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JobBoard.puml; sourceTree = "<group>"; };
 		6156A9F42571B32900FADE2B /* JobBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobBoard.png; sourceTree = "<group>"; };
 		6156AAA82572E6DC00FADE2B /* JobItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobItem.swift; sourceTree = "<group>"; };
+		619371AE257C2E1E003EC29E /* LoginContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContext.swift; sourceTree = "<group>"; };
+		619371B2257C2E83003EC29E /* SignUpContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				6156AAA82572E6DC00FADE2B /* JobItem.swift */,
+				619371AE257C2E1E003EC29E /* LoginContext.swift */,
+				619371B2257C2E83003EC29E /* SignUpContext.swift */,
 			);
 			path = RemoteBees;
 			sourceTree = "<group>";
@@ -277,6 +283,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619371AF257C2E1E003EC29E /* LoginContext.swift in Sources */,
+				619371B3257C2E83003EC29E /* SignUpContext.swift in Sources */,
 				6156A9F12571B31A00FADE2B /* JobBoard.puml in Sources */,
 				6156A9E42571B04100FADE2B /* Login.puml in Sources */,
 				6156A9D52571A61100FADE2B /* Onboard.puml in Sources */,

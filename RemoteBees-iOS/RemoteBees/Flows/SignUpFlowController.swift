@@ -19,13 +19,19 @@ class SignUpFlowController: ViewCache, NavStateMachine, SignUpStateMachine {
         return self.subflow(to: SignUpView.self, context: nil)
                     .map {
                         switch $0 {
-                            case .signUp(let firstName, let lastName, let email, let password):
-                                return .submitSignUp(())
+                            case let .signUp(firstName, lastName, email, password):
+                                let context = SignUpContext(
+                                                firstName: firstName,
+                                                lastName: lastName,
+                                                email: email,
+                                                password: password
+                                            )
+                                return .submitSignUp(context)
                         }
                     }
     }
     
-    func onSubmitSignUp(state: SignUpState, context: Void) -> Promise<SignUpState.SubmitSignUp> {
+    func onSubmitSignUp(state: SignUpState, context: SignUpContext) -> Promise<SignUpState.SubmitSignUp> {
         return Promise.value(.end(()))
     }
 

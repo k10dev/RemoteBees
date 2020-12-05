@@ -22,7 +22,7 @@ class LoginFlowController : StateMachineActivity<LoginState, Unit, Int>(), Login
                                 LoginState.FromPrompt.ForgotPassword(Unit)
                             }
                             is LoginFragment.Response.Login -> {
-                                LoginState.FromPrompt.SubmitLogin(Unit)
+                                LoginState.FromPrompt.SubmitLogin(LoginContext(email = it.email, password = it.password))
                             }
                         }
                     }
@@ -36,7 +36,8 @@ class LoginFlowController : StateMachineActivity<LoginState, Unit, Int>(), Login
                     .map {
                         when (it) {
                             is ForgotPasswordFragment.Response.SendResetPassword -> {
-                                LoginState.FromForgotPassword.SubmitForgotPassword(Unit) as LoginState.FromForgotPassword
+                                LoginState.FromForgotPassword.SubmitForgotPassword(it.email)
+                                        as LoginState.FromForgotPassword
                             }
                         }
                     }
@@ -46,14 +47,14 @@ class LoginFlowController : StateMachineActivity<LoginState, Unit, Int>(), Login
 
     override fun onSubmitLogin(
         state: LoginState,
-        context: Unit
+        context: LoginContext
     ): Promise<LoginState.FromSubmitLogin> {
         return Promise.value(LoginState.FromSubmitLogin.End(0))
     }
 
     override fun onSubmitForgotPassword(
         state: LoginState,
-        context: Unit
+        context: String
     ): Promise<LoginState.FromSubmitForgotPassword> {
         return Promise.value(LoginState.FromSubmitForgotPassword.Prompt(Unit))
     }
