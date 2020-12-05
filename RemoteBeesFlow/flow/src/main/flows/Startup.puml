@@ -3,6 +3,8 @@
 title Startup
 note "Startup flow is the application entry flow " as N1
 
+!$export_lang = %getenv("export_lang")
+
 [*] --> Entry
 
 Entry --> Onboard
@@ -10,6 +12,12 @@ Entry --> JobBoard
 
 Onboard --> JobBoard
 
+' Temporary workaround for a FlowKit bug in Android where
+' a flow returns Void/Unit would cause NullPointerException
+!if ($export_lang == "swift")
 JobBoard --> [*]
+!else
+JobBoard --> [*]: Int
+!endif
 
 @enduml

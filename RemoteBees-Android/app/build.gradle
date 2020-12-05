@@ -51,7 +51,7 @@ dependencies {
     // Promise dependency
     implementation "com.github.inmotionsoftware:promisekt:1.0.0"
     // FlowKit
-    implementation "com.github.inmotionsoftware.FlowKit:lib:0.1.15"
+    implementation "com.github.inmotionsoftware.FlowKit:lib:0.1.17"
     implementation "com.github.inmotionsoftware:kotlin-log:1.4.0"
     implementation "com.github.inmotionsoftware:kotlin-log-android:1.0.0"
 

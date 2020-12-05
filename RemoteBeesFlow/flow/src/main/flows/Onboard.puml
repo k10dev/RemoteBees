@@ -2,21 +2,35 @@
 
 title Onboard
 
+!$export_lang = %getenv("export_lang")
+
 [*] --> Prompt
 
 Prompt --> Login
 Prompt --> SignUp
 Prompt --> Skip
 
-Login --> JobBoard
+'Login --> JobBoard
 Login --> Prompt
 
-SignUp --> JobBoard
+'SignUp --> JobBoard
 SignUp --> Prompt
 
-Skip --> JobBoard
+'Skip --> JobBoard
 
-JobBoard --> [*]
-Prompt --> [*]
+' JobBoard --> [*]
+' Prompt --> [*]
+
+' Temporary workaround for a FlowKit bug in Android where
+' a flow returns Void/Unit would cause NullPointerException
+!if ($export_lang == "swift")
+Login --> [*]
+SignUp --> [*]
+Skip --> [*]
+!else
+Login --> [*]: Int
+SignUp --> [*]: Int
+Skip --> [*]: Int
+!endif
 
 @enduml

@@ -1,11 +1,13 @@
 package dev.beehive.remotebees.flow
 
 import com.inmotionsoftware.flowkit.android.StateMachineActivity
+import com.inmotionsoftware.flowkit.back
+import com.inmotionsoftware.flowkit.cancel
 import com.inmotionsoftware.promisekt.Promise
 import com.inmotionsoftware.promisekt.map
 import dev.beehive.remotebees.fragment.SignUpFragment
 
-class SignUpFlowController : StateMachineActivity<SignUpState, Unit, Unit>(), SignUpStateMachine {
+class SignUpFlowController : StateMachineActivity<SignUpState, Unit, Int>(), SignUpStateMachine {
 
     override fun onBegin(state: SignUpState, context: Unit): Promise<SignUpState.FromBegin> {
         return Promise.value(SignUpState.FromBegin.Prompt(context))
@@ -16,7 +18,7 @@ class SignUpFlowController : StateMachineActivity<SignUpState, Unit, Unit>(), Si
                     .map {
                         when (it) {
                             is SignUpFragment.Response.SignUp -> {
-                                Promise.value(SignUpState.FromPrompt.SubmitSignUp(Unit)) as SignUpState.FromPrompt
+                                SignUpState.FromPrompt.SubmitSignUp(Unit) as SignUpState.FromPrompt
                             }
                         }
                     }
@@ -26,7 +28,21 @@ class SignUpFlowController : StateMachineActivity<SignUpState, Unit, Unit>(), Si
         state: SignUpState,
         context: Unit
     ): Promise<SignUpState.FromSubmitSignUp> {
-        return Promise.value(SignUpState.FromSubmitSignUp.End(Unit))
+        return Promise.value(SignUpState.FromSubmitSignUp.End(1))
+
+        // Subflow reusability example
+        /*
+        return this.subflow(stateMachine = LoginFlowController::class.java, state = LoginState.Begin(context))
+                .map {
+                    SignUpState.FromSubmitSignUp.End(1) as SignUpState.FromSubmitSignUp
+                }
+                .back {
+                    SignUpState.FromSubmitSignUp.Prompt(Unit)
+                }
+                .cancel {
+                    SignUpState.FromSubmitSignUp.Prompt(Unit)
+                }
+        */
     }
 
 }

@@ -1,12 +1,11 @@
 package dev.beehive.remotebees.flow
 
-import android.os.Bundle
 import com.inmotionsoftware.flowkit.android.StateMachineActivity
 import com.inmotionsoftware.promisekt.Promise
 import com.inmotionsoftware.promisekt.map
 import dev.beehive.remotebees.app.AppProxy
 
-class StartupFlowController : StateMachineActivity<StartupState, Unit, Unit>(), StartupStateMachine {
+class StartupFlowController : StateMachineActivity<StartupState, Unit, Int>(), StartupStateMachine {
 
     override fun onBegin(state: StartupState, context: Unit): Promise<StartupState.FromBegin> {
         return Promise.value(StartupState.FromBegin.Entry(context))
@@ -35,7 +34,7 @@ class StartupFlowController : StateMachineActivity<StartupState, Unit, Unit>(), 
     ): Promise<StartupState.FromJobBoard> {
         return this.subflow(stateMachine = JobBoardFlowController::class.java, state=JobBoardState.Begin(context))
                     .map {
-                        StartupState.FromJobBoard.End(Unit)
+                        StartupState.FromJobBoard.End(1)
                     }
     }
 

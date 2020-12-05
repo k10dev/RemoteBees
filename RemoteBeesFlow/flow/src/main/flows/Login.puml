@@ -2,6 +2,8 @@
 
 title Login
 
+!$export_lang = %getenv("export_lang")
+
 [*] --> Prompt
 
 Prompt --> ForgotPassword
@@ -15,7 +17,12 @@ SubmitForgotPassword --> Prompt
 ForgotPassword --> Prompt
 SubmitLogin --> Prompt
 
-Prompt --> [*]
+' Temporary workaround for a FlowKit bug in Android where
+' a flow returns Void/Unit would cause NullPointerException
+!if ($export_lang == "swift")
 SubmitLogin --> [*]
+!else
+SubmitLogin --> [*]: Int
+!endif
 
 @enduml

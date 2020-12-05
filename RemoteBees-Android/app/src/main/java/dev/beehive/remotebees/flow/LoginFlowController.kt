@@ -8,7 +8,7 @@ import com.inmotionsoftware.promisekt.map
 import dev.beehive.remotebees.fragment.ForgotPasswordFragment
 import dev.beehive.remotebees.fragment.LoginFragment
 
-class LoginFlowController : StateMachineActivity<LoginState, Unit, Unit>(), LoginStateMachine {
+class LoginFlowController : StateMachineActivity<LoginState, Unit, Int>(), LoginStateMachine {
 
     override fun onBegin(state: LoginState, context: Unit): Promise<LoginState.FromBegin> {
         return Promise.value(LoginState.FromBegin.Prompt(Unit))
@@ -40,19 +40,15 @@ class LoginFlowController : StateMachineActivity<LoginState, Unit, Unit>(), Logi
                             }
                         }
                     }
-                    .back {
-                        LoginState.FromForgotPassword.Prompt(Unit)
-                    }
-                    .cancel {
-                        LoginState.FromForgotPassword.Prompt(Unit)
-                    }
+                    .back { LoginState.FromForgotPassword.Prompt(Unit) }
+                    .cancel { LoginState.FromForgotPassword.Prompt(Unit) }
     }
 
     override fun onSubmitLogin(
         state: LoginState,
         context: Unit
     ): Promise<LoginState.FromSubmitLogin> {
-        return Promise.value(LoginState.FromSubmitLogin.End(Unit))
+        return Promise.value(LoginState.FromSubmitLogin.End(0))
     }
 
     override fun onSubmitForgotPassword(

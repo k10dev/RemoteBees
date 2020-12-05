@@ -15,6 +15,7 @@ import dev.beehive.remotebees.app.AppProxy
 import dev.beehive.remotebees.fragment.JobBoardFragment
 import dev.beehive.remotebees.service.api.JobSearchType
 import dev.beehive.remotebees.service.domain.Job
+import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 
 private fun Job.toJobItem(): JobItem {
@@ -30,6 +31,7 @@ private fun Job.toJobItem(): JobItem {
 
 @Parcelize
 class AllJobs: AsyncJobItems, Parcelable {
+    @IgnoredOnParcel
     private var jobItems: List<JobItem> = emptyList()
 
     override fun jobItems(): Promise<List<JobItem>> {
@@ -38,9 +40,7 @@ class AllJobs: AsyncJobItems, Parcelable {
         } else {
             AppProxy.proxy.serviceManager.beehiveService.getAllJobs()
                 .map { jobs ->
-                    val jobItems = jobs.map { it.toJobItem() }
-                    this.jobItems = jobItems
-                    jobItems
+                    jobs.map { it.toJobItem() }.also { this.jobItems = it }
                 }
         }
     }
@@ -48,6 +48,7 @@ class AllJobs: AsyncJobItems, Parcelable {
 
 @Parcelize
 class SearchJobs(private val searchTerm: String): AsyncJobItems, Parcelable {
+    @IgnoredOnParcel
     private var jobItems: List<JobItem> = emptyList()
 
     override fun jobItems(): Promise<List<JobItem>> {
@@ -56,15 +57,13 @@ class SearchJobs(private val searchTerm: String): AsyncJobItems, Parcelable {
         } else {
             AppProxy.proxy.serviceManager.beehiveService.searchJobs(type = JobSearchType.Listing(this.searchTerm))
                 .map { jobs ->
-                    val jobItems = jobs.map { it.toJobItem() }
-                    this.jobItems = jobItems
-                    jobItems
+                    jobs.map { it.toJobItem() }.also { this.jobItems = it }
                 }
         }
     }
 }
 
-class JobBoardFlowController() : StateMachineActivity<JobBoardState, Unit, Unit>(), JobBoardStateMachine {
+class JobBoardFlowController() : StateMachineActivity<JobBoardState, Unit, Int>(), JobBoardStateMachine {
 
     private lateinit var jobItems: AsyncJobItems
 
@@ -98,15 +97,9 @@ class JobBoardFlowController() : StateMachineActivity<JobBoardState, Unit, Unit>
 
     override fun onLogin(state: JobBoardState, context: Unit): Promise<JobBoardState.FromLogin> {
         return this.subflow(stateMachine = LoginFlowController::class.java, state = LoginState.Begin(Unit))
-                    .map {
-                        JobBoardState.FromLogin.Main(this.jobItems) as JobBoardState.FromLogin
-                    }
-                    .back {
-                        JobBoardState.FromLogin.Main(this.jobItems)
-                    }
-                    .cancel {
-                        JobBoardState.FromLogin.Main(this.jobItems)
-                    }
+                    .map { JobBoardState.FromLogin.Main(this.jobItems) as JobBoardState.FromLogin }
+                    .back { JobBoardState.FromLogin.Main(this.jobItems) }
+                    .cancel { JobBoardState.FromLogin.Main(this.jobItems) }
     }
 
     override fun onProfile(

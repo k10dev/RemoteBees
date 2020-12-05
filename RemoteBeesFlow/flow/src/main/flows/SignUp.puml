@@ -2,13 +2,20 @@
 
 title SignUp
 
+!$export_lang = %getenv("export_lang")
+
 [*] --> Prompt
 
 Prompt --> SubmitSignUp
 
 SubmitSignUp --> Prompt
 
-Prompt --> [*]
+' Temporary workaround for a FlowKit bug in Android where
+' a flow returns Void/Unit would cause NullPointerException
+!if ($export_lang == "swift")
 SubmitSignUp --> [*]
+!else
+SubmitSignUp --> [*]: Int
+!endif
 
 @enduml

@@ -14,15 +14,15 @@ Profile --> Main
 Search --> Main
 ViewDetail --> Main
 
-Main --> [*]
-
 ViewDetail: JobItem
 Search: String
 
 !$export_lang = %getenv("export_lang")
 !if ($export_lang == "swift")
+Main --> [*]
 Main: Promise<[JobItem]>
 !else
+Main --> [*]: Int
 Main: AsyncJobItems
 !endif
 
