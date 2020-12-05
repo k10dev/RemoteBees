@@ -1,0 +1,13 @@
+strings:
+  inputs: RemoteBees/Resources/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      output: RemoteBees/Resources/Localized.swift
+
+xcassets:
+  inputs:
+   - RemoteBees/Resources/Assets.xcassets
+   - RemoteBees/Resources/Colors.xcassets
+  outputs:
+      templateName: swift5
+      output: RemoteBees/Resources/Assets.swift

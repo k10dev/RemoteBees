@@ -11,19 +11,21 @@ protocol AppPreferences {
 
 extension UserDefaults : AppPreferences {
 
+    private static let keyFirstTimeUsed = "firstTimeUsed"
+
     static func preferences() -> AppPreferences {
         return UserDefaults.standard
     }
     
     var firstTimeUsed: Bool {
         get {
-            guard let value = UserDefaults.standard.object(forKey: "firstTimeUsed") else {
+            guard let value = UserDefaults.standard.object(forKey: Self.keyFirstTimeUsed) else {
                 return true
             }
             return value as! Bool
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "firstTimeUsed")
+            UserDefaults.standard.set(newValue, forKey: Self.keyFirstTimeUsed)
         }
     }
     

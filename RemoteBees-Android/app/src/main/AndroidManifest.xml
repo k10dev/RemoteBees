@@ -32,15 +32,15 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".flow.LoginFlowController"
-            android:label="Login"
+            android:label="@string/title.login"
             android:screenOrientation="portrait" />
 
         <activity android:name=".flow.SignUpFlowController"
-            android:label="Sign Up"
+            android:label="@string/title.sign_up"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".flow.JobBoardFlowController"
-            android:label="Remote Bees"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"/>
 
     </application>

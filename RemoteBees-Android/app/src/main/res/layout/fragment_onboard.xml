@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:textColor="@color/white"
         android:background="@color/beehiveBrand"
-        android:text="Login"
+        android:text="@string/action.login"
         android:layout_marginBottom="20dp"
         />
 
@@ -23,7 +23,7 @@
         android:layout_height="50dp"
         android:textColor="@color/white"
         android:background="@color/beehiveBrand"
-        android:text="Sign Up"
+        android:text="@string/action.sign_up"
         android:layout_marginBottom="20dp"
         />
 
@@ -33,6 +33,6 @@
         android:layout_height="50dp"
         android:textColor="@color/beehiveBrand"
         android:background="@color/white"
-        android:text="Skip" />
+        android:text="@string/action.skip" />
 
 </LinearLayout>

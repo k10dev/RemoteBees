@@ -33,32 +33,32 @@ struct SignUpView: FlowableView {
         VStack {
             Spacer().frame(height: 30)
 
-            TextField("First Name", text: $firstName)
+            TextField(L10n.Placeholder.firstName, text: $firstName)
                 .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
                 .padding(.horizontal, 10.0)
                 .padding(.bottom, 5.0)
-            TextField("Last Name", text: $lastName)
+            TextField(L10n.Placeholder.lastName, text: $lastName)
                 .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
                 .padding(.horizontal, 10.0)
                 .padding(.bottom, 5.0)
-            TextField("Email", text: $email)
+            TextField(L10n.Placeholder.email, text: $email)
                 .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
                 .padding(.horizontal, 10.0)
                 .padding(.bottom, 5.0)
-            SecureField("Password", text: $password)
+            SecureField(L10n.Placeholder.password, text: $password)
                 .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
                 .padding(.horizontal, 10.0)
                 .padding(.bottom, 20.0)
 
-            Button("Submit", action: self.onSignUp)
+            Button(L10n.Action.submit, action: self.onSignUp)
                 .font(.system(size: 20))
                 .foregroundColor(Color.white)
                 .frame(width: 250, height: 50, alignment: .center)
@@ -67,7 +67,7 @@ struct SignUpView: FlowableView {
 
             Spacer()
         }
-        .navigationBarTitle("Sign Up")
+        .navigationBarTitle(L10n.Title.signUp)
     }
 
     private func onSignUp() {

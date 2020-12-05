@@ -32,32 +32,32 @@ struct LoginView: FlowableView {
         VStack {
             Spacer().frame(height: 20)
 
-            TextField("Email", text: $email)
+            TextField(L10n.Placeholder.email, text: $email)
                 .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
                 .padding(10)
-            SecureField("Password", text: $password)
+            SecureField(L10n.Placeholder.password, text: $password)
                 .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
                 .padding(.horizontal, 10)
                 .padding(.bottom, 20)
 
-            Button("Submit", action: self.onLogIn)
+            Button(L10n.Action.submit, action: self.onLogIn)
                 .font(.system(size: 20))
                 .foregroundColor(Color.white)
                 .frame(width: 250, height: 50, alignment: .center)
                 .background(RoundedCorners(color: Color.beehiveBrand, tl: 10, tr: 10, bl: 10, br: 10))
                 .padding(.bottom, 20)
 
-            Button("Forgot Password?", action: self.onForgotPassword)
+            Button(L10n.Action.forgotPassword, action: self.onForgotPassword)
                 .font(.system(size: 15))
                 .foregroundColor(Color.beehiveBrand)
 
             Spacer()
         }
-        .navigationBarTitle("Login")
+        .navigationBarTitle(L10n.Title.login)
     }
 
     private func onLogIn() {

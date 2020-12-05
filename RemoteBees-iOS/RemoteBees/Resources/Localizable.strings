@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  RemoteBees
+*/
+
+// Navigation Bar Title
+"title.brandName" = "Remote Bees";
+"title.brandSlogan" = "Find Your Happiness";
+"title.passwordReset" = "Password Reset";
+"title.login" = "Login";
+"title.signUp" = "Sign Up";
+
+// Placeholder
+"placeholder.email" = "Email";
+"placeholder.password" = "Password";
+"placeholder.firstName" = "Fist Name";
+"placeholder.lastName" = "Last Name";
+"placeholder.search" = "Job title, keywords, or company";
+
+// Action Title
+"action.submit" = "Submit";
+"action.search" = "Search";
+"action.forgotPassword" = "Forgot Password?";
+"action.login" = "Login";
+"action.signUp" = "Sign Up";
+"action.skip" = "Skip";

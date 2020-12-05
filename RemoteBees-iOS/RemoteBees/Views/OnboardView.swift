@@ -27,21 +27,21 @@ struct OnboardView: FlowableView {
         VStack(alignment: .center) {
             Spacer()
 
-            Button("Login", action: self.onLogIn)
+            Button(L10n.Action.login, action: self.onLogIn)
                 .font(.system(size: 20))
                 .foregroundColor(Color.white)
                 .frame(width: 250, height: 50, alignment: .center)
                 .background(RoundedCorners(color: Color.beehiveBrand, tl: 10, tr: 10, bl: 10, br: 10))
                 .padding(.bottom, 20)
             
-            Button("Sign Up", action: self.onSignUp)
+            Button(L10n.Action.signUp, action: self.onSignUp)
                 .font(.system(size: 20))
                 .foregroundColor(Color.white)
                 .frame(width: 250, height: 50, alignment: .center)
                 .background(RoundedCorners(color: Color.beehiveBrand, tl: 10, tr: 10, bl: 10, br: 10))
                 .padding(.bottom, 20)
 
-            Button("Skip", action: self.onSkip)
+            Button(L10n.Action.skip, action: self.onSkip)
                 .font(.system(size: 20))
                 .foregroundColor(Color.beehiveBrand)
 

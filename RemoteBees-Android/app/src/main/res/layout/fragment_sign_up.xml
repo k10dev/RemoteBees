@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:layout_margin="20dp"
         android:ems="15"
-        android:hint="First Name"
+        android:hint="@string/placeholder.first_name"
         android:inputType="textCapWords" />
 
     <EditText
@@ -25,7 +25,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:ems="15"
-        android:hint="Last Name"
+        android:hint="@string/placeholder.last_name"
         android:inputType="textCapWords" />
 
     <EditText
@@ -36,7 +36,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:ems="15"
-        android:hint="Email"
+        android:hint="@string/placeholder.email"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -47,13 +47,13 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:ems="15"
-        android:hint="Password"
+        android:hint="@string/placeholder.password"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:text="Submit" />
+        android:text="@string/action.submit" />
 
 </LinearLayout>

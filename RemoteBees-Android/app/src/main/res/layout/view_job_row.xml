@@ -14,15 +14,13 @@
         android:layout_margin="10dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/logo_placeholder"
-        />
+        android:src="@drawable/logo_placeholder" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:gravity="left"
+        android:gravity="start"
         android:orientation="vertical">
         <TextView
             android:id="@+id/titleText"

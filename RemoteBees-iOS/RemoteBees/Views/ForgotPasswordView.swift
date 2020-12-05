@@ -28,14 +28,14 @@ struct ForgotPasswordView: FlowableView {
         VStack {
             Spacer().frame(height: 30)
 
-            TextField("Email", text: $email)
+            TextField(L10n.Placeholder.email, text: $email)
                 .padding(10)
                 .background(Color.lightGrey)
                 .cornerRadius(5.0)
                 .padding(.horizontal, 10)
                 .padding(.bottom, 20)
 
-            Button("Submit", action: self.onSubmit)
+            Button(L10n.Action.submit, action: self.onSubmit)
                 .font(.system(size: 20))
                 .foregroundColor(Color.white)
                 .frame(width: 250, height: 50, alignment: .center)
@@ -43,7 +43,7 @@ struct ForgotPasswordView: FlowableView {
 
             Spacer()
         }
-        .navigationBarTitle("Password Reset")
+        .navigationBarTitle(L10n.Title.passwordReset)
     }
 
     private func onSubmit() {

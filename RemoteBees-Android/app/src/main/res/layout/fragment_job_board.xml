@@ -26,14 +26,14 @@
                 android:textSize="17sp"
                 android:lines="1"
                 android:inputType="textCapWords"
-                android:hint="Job title, keywords, or company" />
+                android:hint="@string/placeholder.search" />
             <Button
                 android:id="@+id/searchBtn"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"
-                android:text="Search" />
+                android:text="@string/action.search" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

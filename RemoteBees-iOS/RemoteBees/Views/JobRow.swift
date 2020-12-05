@@ -18,7 +18,7 @@ struct JobRow: View {
                     .frame(width: 60, height: 60)
                     .scaledToFill()
             } else {
-                Image("LogoPlaceholder")
+                Image(uiImage: Asset.Assets.logoPlaceholder.image)
                     .resizable()
                     .frame(width: 60, height: 60)
                     .scaledToFit()

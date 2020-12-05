@@ -47,13 +47,13 @@ struct JobBoardView: FlowableView {
             VStack {
                 Spacer().frame(height: 10)
                 HStack {
-                    TextField("Job title, keywords, or company", text: $searchText)
+                    TextField(L10n.Placeholder.search, text: $searchText)
                         .padding(10)
                         .background(Color.lightGrey)
                         .cornerRadius(5)
                         .padding(.horizontal, 10)
          
-                    Button("Search", action: self.onSearch)
+                    Button(L10n.Action.search, action: self.onSearch)
                         .padding(.trailing, 10)
                         .foregroundColor(Color.beehiveBrand)
                 }
@@ -76,8 +76,8 @@ struct JobBoardView: FlowableView {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack {
-                    Text("Remote Bees").font(.headline)
-                    Text("Find Your Happiness").font(.subheadline).foregroundColor(Color.white)
+                    Text(L10n.Title.brandName).font(.headline)
+                    Text(L10n.Title.brandSlogan).font(.subheadline).foregroundColor(Color.white)
                 }
             }
         }

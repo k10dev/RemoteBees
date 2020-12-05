@@ -38,6 +38,9 @@
 		6156AAE125730A3100FADE2B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156AAE025730A3100FADE2B /* LoadingView.swift */; };
 		6156AAE725730B0800FADE2B /* bee-flying.json in Resources */ = {isa = PBXBuildFile; fileRef = 6156AAE625730B0800FADE2B /* bee-flying.json */; };
 		6156AAF225730D0C00FADE2B /* UserDefaults+Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156AAF125730D0C00FADE2B /* UserDefaults+Preferences.swift */; };
+		6193719F257C2110003EC29E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6193719E257C2110003EC29E /* Localizable.strings */; };
+		619371A9257C229F003EC29E /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619371A7257C229F003EC29E /* Localized.swift */; };
+		619371AA257C229F003EC29E /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619371A8257C229F003EC29E /* Assets.swift */; };
 		61A6C99A256859CC00A2034B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6C999256859CC00A2034B /* AppDelegate.swift */; };
 		61A6C99C256859CC00A2034B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6C99B256859CC00A2034B /* SceneDelegate.swift */; };
 		61A6C9A1256859CC00A2034B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A6C99F256859CC00A2034B /* Main.storyboard */; };
@@ -128,6 +131,9 @@
 		6156AAE025730A3100FADE2B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		6156AAE625730B0800FADE2B /* bee-flying.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "bee-flying.json"; sourceTree = "<group>"; };
 		6156AAF125730D0C00FADE2B /* UserDefaults+Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Preferences.swift"; sourceTree = "<group>"; };
+		6193719E257C2110003EC29E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		619371A7257C229F003EC29E /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		619371A8257C229F003EC29E /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		61A6C996256859CC00A2034B /* RemoteBees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A6C999256859CC00A2034B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61A6C99B256859CC00A2034B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,11 +250,14 @@
 		6156AAE525730B0800FADE2B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				619371A8257C229F003EC29E /* Assets.swift */,
+				619371A7257C229F003EC29E /* Localized.swift */,
 				61A6C9A4256859CD00A2034B /* LaunchScreen.storyboard */,
 				61A6C99F256859CC00A2034B /* Main.storyboard */,
 				61A6C9A2256859CD00A2034B /* Assets.xcassets */,
 				6156AA3D2571D06400FADE2B /* Colors.xcassets */,
 				6156AAE625730B0800FADE2B /* bee-flying.json */,
+				6193719E257C2110003EC29E /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -443,6 +452,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61A6C9C0256859CD00A2034B /* Build configuration list for PBXNativeTarget "RemoteBees" */;
 			buildPhases = (
+				619371A3257C2157003EC29E /* SwiftGen */,
 				61A6C992256859CC00A2034B /* Sources */,
 				61A6C993256859CC00A2034B /* Frameworks */,
 				61A6C994256859CC00A2034B /* Resources */,
@@ -568,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61A6C9A6256859CD00A2034B /* LaunchScreen.storyboard in Resources */,
+				6193719F257C2110003EC29E /* Localizable.strings in Resources */,
 				6156AA3E2571D06400FADE2B /* Colors.xcassets in Resources */,
 				61A6C9A3256859CD00A2034B /* Assets.xcassets in Resources */,
 				6156AAE725730B0800FADE2B /* bee-flying.json in Resources */,
@@ -591,6 +602,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		619371A3257C2157003EC29E /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n${SRCROOT}/tools/swiftgen/bin/swiftgen\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6156A8E92571576C00FADE2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -611,6 +643,7 @@
 				6156A8B9257047A000FADE2B /* CouchbaseLite.swift in Sources */,
 				61A6CA20256879A600A2034B /* SplashScreenViewController.swift in Sources */,
 				61E75CF22568878500067613 /* UIViewController+Extension.swift in Sources */,
+				619371AA257C229F003EC29E /* Assets.swift in Sources */,
 				6156AA2D2571CABA00FADE2B /* OnboardView.swift in Sources */,
 				6156AABB2572F3BB00FADE2B /* RemoteBeesContentService.swift in Sources */,
 				6156AA512571FEAD00FADE2B /* LoginView.swift in Sources */,
@@ -624,6 +657,7 @@
 				6156AA252571C8EA00FADE2B /* OnboardFlowController.swift in Sources */,
 				6156AA6425720F5600FADE2B /* SignUpFlowController.swift in Sources */,
 				6156AA6925720FB600FADE2B /* SignUpView.swift in Sources */,
+				619371A9257C229F003EC29E /* Localized.swift in Sources */,
 				61E75D2B2568918E00067613 /* RemotiveBeehiveService.swift in Sources */,
 				61E75D30256891B700067613 /* RemoteBeesServiceConfiguration.swift in Sources */,
 				61E75D262568917500067613 /* Job.swift in Sources */,
