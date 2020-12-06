@@ -1,3 +1,9 @@
+/***************************************************************************
+ * This source file is part of the RemoteBees open source project.         *
+ *                                                                         *
+ * Licensed under the MIT License. See LICENSE for license information     *
+ ***************************************************************************/
+
 package dev.beehive.remotebees.app
 
 import android.content.Context
@@ -8,7 +14,8 @@ class AppPreferences(context: Context) {
         private const val KEY_FIRST_TIME_USED = "FIRST_TIME_USED"
     }
 
-    private val preferences: SharedPreferences = context.getSharedPreferences("RemoteBeesPreferences", Context.MODE_PRIVATE)
+    private val preferences: SharedPreferences =
+            context.getSharedPreferences("RemoteBeesPreferences", Context.MODE_PRIVATE)
 
     var firstTimeUsed: Boolean
         get() {

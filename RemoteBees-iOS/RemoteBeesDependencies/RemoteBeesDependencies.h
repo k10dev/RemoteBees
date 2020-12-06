@@ -1,9 +1,8 @@
-//
-//  RemoteBeesDependencies.h
-//  RemoteBeesDependencies
-//
-//  Created by Khuong on 11/27/20.
-//
+/***************************************************************************
+ * This source file is part of the RemoteBees open source project.         *
+ *                                                                         *
+ * Licensed under the MIT License. See LICENSE for license information     *
+ ***************************************************************************/
 
 #import <Foundation/Foundation.h>
 

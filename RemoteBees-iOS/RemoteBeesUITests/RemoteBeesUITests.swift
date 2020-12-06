@@ -1,7 +1,8 @@
-//
-//  RemoteBeesUITests.swift
-//  RemoteBeesUITests
-//
+/***************************************************************************
+ * This source file is part of the RemoteBees open source project.         *
+ *                                                                         *
+ * Licensed under the MIT License. See LICENSE for license information     *
+ ***************************************************************************/
 
 import XCTest
 

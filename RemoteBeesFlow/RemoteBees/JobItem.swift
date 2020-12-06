@@ -1,7 +1,8 @@
-//
-//  JobItem.swift
-//  RemoteBeesFlow
-//
+/***************************************************************************
+ * This source file is part of the RemoteBees open source project.         *
+ *                                                                         *
+ * Licensed under the MIT License. See LICENSE for license information     *
+ ***************************************************************************/
 
 public struct JobItem: Hashable, Codable, Identifiable {
     public let id: Int
